@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_student_name"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="60dp"
+        android:gravity="center_vertical"
+        android:text="名字"/>
+
+    <TextView
+        android:id="@+id/tv_student_age"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="60dp"
+        android:gravity="center_vertical"
+        android:text="年龄"/>
+
+    <TextView
+        android:id="@+id/tv_student_fruit"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="60dp"
+        android:gravity="center_vertical"
+        android:text="水果"/>
+
+</LinearLayout>

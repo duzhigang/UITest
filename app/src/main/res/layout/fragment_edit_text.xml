@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="自定义EditText"
+        android:layout_margin="20dp"
+        android:layout_gravity="center_horizontal" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+
+        <EditText
+            android:id="@+id/et_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingRight="100dp"
+            android:hint="请输入名字"
+            android:inputType="text"
+            android:textSize="14sp"
+            android:ellipsize="end"
+            android:textColor="@android:color/white"
+            tools:text="初始化名字"
+            android:maxLines="1"
+            android:gravity="center_vertical"
+            android:theme="@style/MyEditText"/>
+
+        <Button
+            android:id="@+id/btn_confirm"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:text="修改"
+            android:background="@color/transparent" />
+
+    </RelativeLayout>
+
+<!--    <EditText
+        android:id="@+id/et_other"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="请输入其他"
+        android:theme="@style/MyEditText"/>-->
+
+</LinearLayout>
