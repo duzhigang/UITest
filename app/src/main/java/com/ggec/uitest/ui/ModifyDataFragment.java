@@ -33,7 +33,7 @@ public class ModifyDataFragment extends Fragment {
                 Intent intent = new Intent();
                 intent.putExtra("result", str);
                 Log.e(TAG,"发送结果为：" + str);
-                getTargetFragment().onActivityResult(1, 2, intent);
+                getTargetFragment().onActivityResult(getTargetRequestCode(), 2, intent);
                 getFragmentManager().popBackStack();
             }
         });

@@ -22,7 +22,7 @@ import java.util.ArrayList;
 
 /**
  * Created by ggec on 2018/8/31.
- * 测试将一个ArrayList<>数据分成不同的组显示
+ * 测试将一个ArrayList<>数据分成不同的组显示以及Fragment返回值
  */
 
 public class ExpandableLVFragment extends Fragment implements View.OnClickListener{

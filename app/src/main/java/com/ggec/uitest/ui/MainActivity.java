@@ -9,9 +9,6 @@ import android.widget.Button;
 
 import com.ggec.uitest.R;
 
-import java.io.ByteArrayOutputStream;
-import java.io.UnsupportedEncodingException;
-
 public class MainActivity extends FragmentActivity {
     private String TAG = "MainActivity";
 
@@ -25,7 +22,7 @@ public class MainActivity extends FragmentActivity {
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, OneLifeActivity.class);
+                Intent intent = new Intent(MainActivity.this, DownLoadFileActivity.class);
                 startActivity(intent);
             }
         });

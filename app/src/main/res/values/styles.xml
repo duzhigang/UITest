@@ -11,13 +11,15 @@
     <style name="CustomDialog" parent="@android:style/Theme.Dialog">
         <!--设置无边框-->
         <item name="android:windowFrame">@null</item>
+        <!--是否浮现在activity之上-->
         <item name="android:windowIsFloating">true</item>
-        <!--设置透明属性-->
+        <!--是否半透明-->
         <item name="android:windowIsTranslucent">false</item>
+        <!--是否显示title-->
         <item name="android:windowNoTitle">true</item>
         <!--设置背景图,可以设置成透明-->
-        <!--<item name="android:windowBackground">@drawable/bg_dialog_confirm</item>-->
-        <!--对话框背景变暗-->
+        <item name="android:windowBackground">@drawable/bg_alert_dialog</item>
+        <!--背景是否模糊显示-->
         <item name="android:backgroundDimEnabled">true</item>
     </style>
 
