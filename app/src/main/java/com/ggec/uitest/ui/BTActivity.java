@@ -1,33 +1,28 @@
 package com.ggec.uitest.ui;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
-import android.view.View;
-import android.widget.Button;
 
 import com.ggec.uitest.R;
-import com.ggec.uitest.ui.webview.WebViewActivity;
 
-public class MainActivity extends FragmentActivity {
-    private String TAG = "MainActivity";
+/**
+ * Created by ggec on 2018/10/15.
+ */
+
+public class BTActivity extends FragmentActivity {
+    private static final String TAG = "BTActivity";
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        Log.v(TAG, "onCreate().");
-
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        final Button btnStart = (Button) findViewById(R.id.btn_main_start);
-        btnStart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, WebViewActivity.class);
-                startActivity(intent);
-            }
-        });
-
+        setContentView(R.layout.activity_bt);
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        Fragment fragment = new BTStatusFragment();
+        ft.replace(R.id.bt_frame, fragment).commit();
     }
 
     @Override

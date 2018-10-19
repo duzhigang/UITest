@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- 获取网站的标题-->
+    <TextView
+        android:id="@+id/wv_normal_title"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:text=""/>
+
+    <!--加载状态-->
+    <TextView
+        android:id="@+id/wv_normal_status"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:text=""/>
+
+    <!--显示网页区域-->
+    <WebView
+        android:id="@+id/wv_normal_webview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

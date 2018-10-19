@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <h1 id="h">测试WebView</h1>
+        <input type="button" value="js调native" onclick="callAndroid()">
+    </head>
+    <body>
+        <button onclick="confirm('Confirm返回值')">Confirm</button>
+        <button onclick="alert('Alert返回值')">Alert</button>
+        <button onclick="prompt('Prompt返回值')">Prompt</button>
+        <button onclick="log()">log</button>
+
+        <script type="text/javascript">
+
+            function callAndroid() {
+                test.hello("js调用了android中的hello方法");
+            }
+
+            function native2js(i,m) {
+                document.getElementById("h").innerHTML = (i+m);
+            }
+
+            function getBackResult() {
+                return "JS返回值6";
+            }
+
+            function log(){
+                console.log("console.log");
+                console.warn("warnning");
+                console.error("error");
+            }
+        </script>
+    </body>
+</html>

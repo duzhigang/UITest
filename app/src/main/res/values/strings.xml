@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">UITest</string>
+    <string name="wv_normal_fragment_load_status">加载状态：%s</string>
 </resources>

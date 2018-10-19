@@ -16,6 +16,7 @@ import com.ggec.uitest.data.Callback;
 /**
  * Created by ggec on 2018/7/31.
  * DialogLifeCycleFragment和MyNormalDialog是为了测试DialogFragment的打开与结束对上一个Fragment生命周期的影响
+ * 结果：DialogFragment对上一层Fragment的生命周期没有任何影响。
  */
 
 public class DialogLifeCycleFragment extends Fragment{
