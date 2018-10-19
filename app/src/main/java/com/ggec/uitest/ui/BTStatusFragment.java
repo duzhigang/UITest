@@ -44,17 +44,6 @@ public class BTStatusFragment extends Fragment {
         BluetoothAdapter adapter = bluetoothManager.getAdapter();
         getConnectBt(adapter);
 
-        //  调用系统浏览器
-        Button btn = (Button) view.findViewById(R.id.btn_bt_status_to_browser);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Uri uri = Uri.parse("https://www.baidu.com");
-                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-                startActivity(intent);
-            }
-        });
-
 /*        if (adapter.isEnabled()) {
             Set<BluetoothDevice> devices =  adapter.getBondedDevices();
             for (BluetoothDevice device : devices) {

@@ -16,10 +16,4 @@
         android:layout_marginTop="100dp"
         android:text="手机没有连上蓝牙" />
 
-    <Button
-        android:id="@+id/btn_bt_status_to_browser"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="跳转浏览器"/>
-
 </LinearLayout>
