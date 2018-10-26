@@ -17,8 +17,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true">
+
         <activity android:name=".ui.MainActivity"
-            android:theme="@android:style/Theme.Holo.NoActionBar">
+            android:theme="@android:style/Theme.Holo.NoActionBar"
+            android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -63,6 +65,20 @@
 
         <activity android:name=".ui.webview.WVNormalActivity"
             android:theme="@android:style/Theme.Holo.NoActionBar"/>
+
+        <activity android:name=".ui.activitymanager.TActivity"
+            android:theme="@android:style/Theme.Holo.NoActionBar"
+            android:launchMode="singleTop"/>
+
+        <activity android:name=".ui.activitymanager.AActivity"
+            android:theme="@android:style/Theme.Holo.NoActionBar"/>
+
+        <activity android:name=".ui.activitymanager.BActivity"
+            android:theme="@android:style/Theme.Holo.NoActionBar"/>
+
+        <activity android:name=".ui.activitymanager.CActivity"
+            android:theme="@android:style/Theme.Holo.NoActionBar"/>
+
 
     </application>
 
