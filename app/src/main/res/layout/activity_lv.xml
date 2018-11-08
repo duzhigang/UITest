@@ -3,6 +3,24 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+
+        <Button
+            android:id="@+id/btn_start_lv"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="ListView"/>
+
+        <Button
+            android:id="@+id/btn_start_elv"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="ExpandableListView"/>
+
+    </LinearLayout>
+
     <FrameLayout
         android:id="@+id/lv_frame"
         android:layout_width="match_parent"

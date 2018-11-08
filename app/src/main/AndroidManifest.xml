@@ -27,37 +27,37 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ui.ETActivity"
+        <activity android:name=".ui.edittext.ETActivity"
             android:theme="@android:style/Theme.Holo.NoActionBar"/>
 
-        <activity android:name=".ui.LVActivity"
+        <activity android:name=".ui.listview.LVActivity"
             android:theme="@android:style/Theme.Holo.NoActionBar"/>
 
-        <activity android:name=".ui.UIActivity"
+        <activity android:name=".ui.uiwidget.UIActivity"
             android:theme="@android:style/Theme.Holo.NoActionBar"/>
 
-        <activity android:name=".ui.FragmentDialogActivity"
+        <activity android:name=".ui.dialog.FragmentDialogActivity"
             android:theme="@android:style/Theme.Holo.NoActionBar"/>
 
-        <activity android:name=".ui.SocketActivity"
+        <activity android:name=".ui.socket.SocketActivity"
             android:theme="@android:style/Theme.Holo.NoActionBar"/>
 
-        <activity android:name=".ui.ChineseCodeActivity"
+        <activity android:name=".ui.stringcode.ChineseCodeActivity"
             android:theme="@android:style/Theme.Holo.NoActionBar"/>
 
-        <activity android:name=".ui.OneLifeActivity"
+        <activity android:name=".ui.lifecycle.OneLifeActivity"
             android:theme="@android:style/Theme.Holo.NoActionBar"/>
 
-        <activity android:name=".ui.TwoLifeActivity"
+        <activity android:name=".ui.lifecycle.TwoLifeActivity"
             android:theme="@android:style/Theme.Holo.NoActionBar"/>
 
-        <activity android:name=".ui.WifiManagerActivity"
+        <activity android:name=".ui.wifi.WifiManagerActivity"
             android:theme="@android:style/Theme.Holo.NoActionBar"/>
 
-        <activity android:name=".ui.DownLoadFileActivity"
+        <activity android:name=".ui.downloadfile.DownLoadFileActivity"
             android:theme="@android:style/Theme.Holo.NoActionBar"/>
 
-        <activity android:name=".ui.BTActivity"
+        <activity android:name=".ui.bt.BTActivity"
             android:theme="@android:style/Theme.Holo.NoActionBar"/>
 
         <activity android:name=".ui.webview.WebViewActivity"
@@ -79,6 +79,10 @@
         <activity android:name=".ui.activitymanager.CActivity"
             android:theme="@android:style/Theme.Holo.NoActionBar"/>
 
+        <!--adjustPan,该Activity主窗口并不调整屏幕的大小以便留出软键盘的空间-->
+        <activity android:name=".ui.wifi.WPAEnterpriseActivity"
+            android:theme="@android:style/Theme.Holo.NoActionBar"
+            android:windowSoftInputMode="adjustPan"/>
 
     </application>
 

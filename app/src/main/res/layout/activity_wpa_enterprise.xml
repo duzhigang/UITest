@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#3d4047"
+    tools:context=".ui.wifi.WPAEnterpriseActivity">
+    <!--android:background="#3d4047"-->
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:text="WPA Enterprise网络"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:background="#000000"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="20dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:text="EAP METHOD"
+            android:background="@android:color/darker_gray"
+            android:gravity="center_vertical"/>
+
+        <Spinner
+            android:id="@+id/sp_wpa_enp_eap_method"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:entries="@array/wap_enp_activity_eap_methods"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_wap_enp_phase2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="20dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:text="PHASE2 AUTHENTICATION"
+            android:background="@android:color/darker_gray"
+            android:gravity="center_vertical"/>
+
+        <Spinner
+            android:id="@+id/sp_wpa_enp_phase2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            tools:entries="@array/wap_enp_activity_peap_phase2"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_wap_enp_identity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="20dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:text="Identity"
+            android:background="@android:color/darker_gray"
+            android:gravity="center_vertical"/>
+
+        <EditText
+            android:id="@+id/et_wpa_enp_identity"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:inputType="textVisiblePassword"
+            android:background="@android:drawable/alert_light_frame"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_wap_enp_pwd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="20dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:text="Password"
+            android:background="@android:color/darker_gray"
+            android:gravity="center_vertical"/>
+
+        <EditText
+            android:id="@+id/et_wpa_enp_pwd"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:inputType="textPassword"
+            android:background="@android:drawable/alert_light_frame"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_margin="15dp"
+        android:gravity="bottom">
+
+        <Button
+            android:id="@+id/btn_wpa_enp_connect"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="Connect"
+            android:background="@color/colorPrimary"/>
+
+    </LinearLayout>
+
+</LinearLayout>

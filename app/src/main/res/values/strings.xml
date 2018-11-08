@@ -1,4 +1,25 @@
 <resources>
     <string name="app_name">UITest</string>
     <string name="wv_normal_fragment_load_status">加载状态：%s</string>
+    <string-array name="wap_enp_activity_eap_methods">
+        <item>PEAP</item>
+        <item>TLS</item>
+        <item>TTLS</item>
+        <item>PWD</item>
+    </string-array>
+
+    <string-array name="wap_enp_activity_peap_phase2">
+        <item>NONE</item>
+        <item>GTC</item>
+        <item>MSCHAPV2</item>
+    </string-array>
+
+    <string-array name="wap_enp_activity_ttls_phase2">
+        <item>NONE</item>
+        <item>PAP</item>
+        <item>MSCHAP</item>
+        <item>MSCHAPV2</item>
+        <item>GTC</item>
+    </string-array>
+
 </resources>

@@ -10,10 +10,10 @@
         android:gravity="center_horizontal"/>
 
     <TextView
-        android:id="@+id/tv_bt_status_not_connected"
+        android:id="@+id/tv_bt_status"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
-        android:text="手机没有连上蓝牙" />
+        android:text="未连上设备的蓝牙" />
 
 </LinearLayout>
