@@ -35,7 +35,7 @@ public class DownLoadFileActivity extends FragmentActivity {
     private static final int MSG_DOWNLOAD_PROGRESS = 0x03;
 
 //    private String url = "http://iar.ggec.com.cn:3000/swu/6_m_a_20180726202638.swu";    //77kB
-    private String url = "http://iar.ggec.com.cn:3000/swu/6_m_a_20180525173131.swu";    //90MB
+    private String url = "http://iar.ggec.com.cn:3000/static/device_upgrade/swu/1.00.163.swu";    //50MB
 //    private String url = "http://iar.ggec.com.cn:3000/swu/6_m_n_20180522194109.swu";    //11.3MB
     private TextView tvProgress;
     private List<String> fileNames = new ArrayList<>();
@@ -70,7 +70,7 @@ public class DownLoadFileActivity extends FragmentActivity {
             @Override
             public void onClick(View v) {
 //                new Progress().start(url);
-                DownloadUtil.get().download(url, "images", new DownloadUtil.OnDownloadListener() {
+                DownloadUtil.get().download(url, "files", new DownloadUtil.OnDownloadListener() {
                     @Override
                     public void onDownloadSuccess() {
                         mHandler.sendEmptyMessage(MSG_DOWNLOAD_SUCCESS);

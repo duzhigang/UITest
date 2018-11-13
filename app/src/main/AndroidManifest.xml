@@ -57,6 +57,9 @@
         <activity android:name=".ui.downloadfile.DownLoadFileActivity"
             android:theme="@android:style/Theme.Holo.NoActionBar"/>
 
+        <activity android:name=".ui.downloadfile.FileDownLoadActivity"
+            android:theme="@android:style/Theme.Holo.NoActionBar"/>
+
         <activity android:name=".ui.bt.BTActivity"
             android:theme="@android:style/Theme.Holo.NoActionBar"/>
 

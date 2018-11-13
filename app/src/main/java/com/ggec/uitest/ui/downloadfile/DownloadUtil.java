@@ -100,8 +100,8 @@ public class DownloadUtil {
      */
     private String isExistDir(String saveDir) throws IOException {
         // 下载位置
-        // 得到的是/storage/emulated/0/Android/data/包名/files/saveDir
-        File downloadFile = new File(MyApplication.getMyApplication().getExternalFilesDir(null), saveDir);
+        // 得到的是/storage/emulated/0/Android/data/包名/cache/目录
+        File downloadFile = new File(MyApplication.getMyApplication().getExternalCacheDir(), saveDir);
         //  得到的是/saveDir
 //        File downloadFile = new File(Environment.getExternalStorageDirectory(), saveDir);
         // 在指定位置创建目录，这会创建路径中所有不存在的目录

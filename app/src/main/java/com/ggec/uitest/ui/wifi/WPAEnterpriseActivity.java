@@ -9,18 +9,18 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.Spinner;
 
 import com.ggec.uitest.R;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
 /**
  * Created by ggec on 2018/11/7.
+ * 802.1x网络配置，Spinner通过spinner.setSelection(pos,true)指定显示的Item
+ * 初始化Spinner时一定会执行一次onItemSelected()方法
  */
 
 public class WPAEnterpriseActivity extends FragmentActivity {

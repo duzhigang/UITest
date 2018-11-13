@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ExpandableListView;
 
 import com.ggec.uitest.R;
@@ -43,7 +44,7 @@ public class ExpandableLVFragment extends Fragment implements View.OnClickListen
         String[] kinds = {"初级组", "高级组"};
         updateAllGroup();
         adapter = new MyExpandableListAdapter(getActivity(), kinds, primaryGrades, seniorStudents);
-        ExpandableListView elvGrades = (ExpandableListView) view.findViewById(R.id.elv_grades);
+        final ExpandableListView elvGrades = (ExpandableListView) view.findViewById(R.id.elv_grades);
         elvGrades.setGroupIndicator(null);
         elvGrades.setAdapter(adapter);
         // 将子Group默认展开
@@ -61,6 +62,22 @@ public class ExpandableLVFragment extends Fragment implements View.OnClickListen
                     ft.replace(R.id.lv_frame, fragment).commit();
                 }
                 return false;
+            }
+        });
+
+        elvGrades.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                final long packedPosition = elvGrades.getExpandableListPosition(position);
+                final int groupPosition = ExpandableListView.getPackedPositionGroup(packedPosition);
+                final int childPosition = ExpandableListView.getPackedPositionChild(packedPosition);
+                if (childPosition == -1) {
+                    Log.v(TAG,"长按的是group：" + groupPosition);
+                } else {
+                    Log.v(TAG,"长按的是group：" + groupPosition + ",child = " + childPosition);
+                }
+                return true;
+//                if (childPosition != -1 && groupPosition == )
             }
         });
 

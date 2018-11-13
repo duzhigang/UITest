@@ -9,6 +9,9 @@ import android.widget.Button;
 
 import com.ggec.uitest.R;
 import com.ggec.uitest.ui.dialog.WaitDialog;
+import com.ggec.uitest.ui.downloadfile.DownLoadFileActivity;
+import com.ggec.uitest.ui.downloadfile.FileDownLoadActivity;
+import com.ggec.uitest.ui.listview.LVActivity;
 import com.ggec.uitest.ui.wifi.WPAEnterpriseActivity;
 
 public class MainActivity extends FragmentActivity {
@@ -24,7 +27,7 @@ public class MainActivity extends FragmentActivity {
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, WPAEnterpriseActivity.class);
+                Intent intent = new Intent(MainActivity.this, LVActivity.class);
                 startActivity(intent);
             }
         });
