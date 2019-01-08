@@ -36,10 +36,10 @@ public class LVActivity extends FragmentActivity {
             @Override
             public void onClick(View v) {
                 FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-                ExpandableLVFragment fragment = new ExpandableLVFragment();
+//                ExpandableLVFragment fragment = new ExpandableLVFragment();
+                ELVAddViewFragment fragment = new ELVAddViewFragment();
                 ft.replace(R.id.lv_frame, fragment).commit();
             }
         });
-
     }
 }

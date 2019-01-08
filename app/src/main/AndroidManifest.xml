@@ -3,6 +3,7 @@
     package="com.ggec.uitest">
 
     <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
     <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
@@ -19,11 +20,24 @@
         android:supportsRtl="true">
 
         <activity android:name=".ui.MainActivity"
-            android:theme="@android:style/Theme.Holo.NoActionBar"
-            android:launchMode="singleTask">
+            android:theme="@android:style/Theme.Holo.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.VIEW" />
+            </intent-filter>
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- Accepts URIs that begin with "http://www.example.com/gizmos” -->
+                <data android:scheme="http"
+                    android:host="www.example.com"
+                    android:pathPrefix="/gizmos" />
+                <!-- note that the leading "/" is required for pathPrefix-->
+                <!-- Accepts URIs that begin with "example://gizmos”
+                <data android:scheme="example"
+                      android:host="gizmos" />
+                -->
             </intent-filter>
         </activity>
 
@@ -57,6 +71,9 @@
         <activity android:name=".ui.downloadfile.DownLoadFileActivity"
             android:theme="@android:style/Theme.Holo.NoActionBar"/>
 
+        <activity android:name=".ui.downloadfile.UploadFileActivity"
+            android:theme="@android:style/Theme.Holo.NoActionBar"/>
+
         <activity android:name=".ui.downloadfile.FileDownLoadActivity"
             android:theme="@android:style/Theme.Holo.NoActionBar"/>
 
@@ -71,7 +88,7 @@
 
         <activity android:name=".ui.activitymanager.TActivity"
             android:theme="@android:style/Theme.Holo.NoActionBar"
-            android:launchMode="singleTop"/>
+            android:launchMode="singleTask"/>
 
         <activity android:name=".ui.activitymanager.AActivity"
             android:theme="@android:style/Theme.Holo.NoActionBar"/>
@@ -84,6 +101,10 @@
 
         <!--adjustPan,该Activity主窗口并不调整屏幕的大小以便留出软键盘的空间-->
         <activity android:name=".ui.wifi.WPAEnterpriseActivity"
+            android:theme="@android:style/Theme.Holo.NoActionBar"
+            android:windowSoftInputMode="adjustPan"/>
+
+        <activity android:name=".ui.jdkversion.LambdaActivity"
             android:theme="@android:style/Theme.Holo.NoActionBar"
             android:windowSoftInputMode="adjustPan"/>
 

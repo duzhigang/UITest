@@ -1,6 +1,8 @@
 package com.ggec.uitest.ui;
 
+import android.app.ActivityManager;
 import android.content.Intent;
+import android.content.pm.ConfigurationInfo;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
@@ -8,9 +10,13 @@ import android.view.View;
 import android.widget.Button;
 
 import com.ggec.uitest.R;
+import com.ggec.uitest.ui.activitymanager.AActivity;
+import com.ggec.uitest.ui.bt.BTActivity;
 import com.ggec.uitest.ui.dialog.WaitDialog;
 import com.ggec.uitest.ui.downloadfile.DownLoadFileActivity;
 import com.ggec.uitest.ui.downloadfile.FileDownLoadActivity;
+import com.ggec.uitest.ui.downloadfile.UploadFileActivity;
+import com.ggec.uitest.ui.jdkversion.LambdaActivity;
 import com.ggec.uitest.ui.listview.LVActivity;
 import com.ggec.uitest.ui.wifi.WPAEnterpriseActivity;
 
@@ -31,6 +37,13 @@ public class MainActivity extends FragmentActivity {
                 startActivity(intent);
             }
         });
+
+        ActivityManager activityManager = (ActivityManager)getSystemService(ACTIVITY_SERVICE);
+        ConfigurationInfo configurationInfo = activityManager.getDeviceConfigurationInfo();
+        //以16进制显示GLES版本
+        String strResult = Integer.toString(configurationInfo.reqGlEsVersion, 16);
+        // version: 30002  3.2版
+        Log.i(TAG,"手机上OpenGL ES版本：" + strResult);
 
     }
 

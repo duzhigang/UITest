@@ -1,19 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="连接上PLAYER(XX-XX-XX-XX-XX-XX)成功？"
+        android:text="蓝牙状态监听"
         android:gravity="center_horizontal"/>
 
     <TextView
         android:id="@+id/tv_bt_status"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
-        android:text="未连上设备的蓝牙" />
+        tools:text="未连上设备的蓝牙" />
+
+    <Button
+        android:id="@+id/bt_bt_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="蓝牙设置"/>
 
 </LinearLayout>
