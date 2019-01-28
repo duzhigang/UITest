@@ -18,7 +18,9 @@ import com.ggec.uitest.ui.downloadfile.FileDownLoadActivity;
 import com.ggec.uitest.ui.downloadfile.UploadFileActivity;
 import com.ggec.uitest.ui.jdkversion.LambdaActivity;
 import com.ggec.uitest.ui.listview.LVActivity;
+import com.ggec.uitest.ui.seekbar.SeekBarActivity;
 import com.ggec.uitest.ui.wifi.WPAEnterpriseActivity;
+import com.ggec.uitest.ui.wifi.WifiManagerActivity;
 
 public class MainActivity extends FragmentActivity {
     private String TAG = "MainActivity";
@@ -30,13 +32,12 @@ public class MainActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Button btnStart = findViewById(R.id.btn_main_start);
-        btnStart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, LVActivity.class);
-                startActivity(intent);
-            }
+        btnStart.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, WifiManagerActivity.class);
+            startActivity(intent);
         });
+
+
 
         ActivityManager activityManager = (ActivityManager)getSystemService(ACTIVITY_SERVICE);
         ConfigurationInfo configurationInfo = activityManager.getDeviceConfigurationInfo();

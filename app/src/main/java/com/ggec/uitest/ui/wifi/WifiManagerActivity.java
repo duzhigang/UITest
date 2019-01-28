@@ -24,6 +24,7 @@ public class WifiManagerActivity extends FragmentActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        Log.v(TAG,"onCreate");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wifi_manager);
         wifiAdmin = new WifiAdmin(this);
@@ -31,26 +32,20 @@ public class WifiManagerActivity extends FragmentActivity {
         wifiAdmin.startScan();
         currentSsid = wifiAdmin.getSSID();
 
-        final TextView tvSsid = (TextView) findViewById(R.id.tv_wifi_activity_ssid);
+        final TextView tvSsid = findViewById(R.id.tv_wifi_activity_ssid);
         tvSsid.setText(currentSsid);
 
-        Button btnRefresh = (Button) findViewById(R.id.btn_wifi_activity_refresh);
-        btnRefresh.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                currentSsid = wifiAdmin.getSSID();
-                tvSsid.setText(currentSsid);
-            }
+        Button btnRefresh = findViewById(R.id.btn_wifi_activity_refresh);
+        btnRefresh.setOnClickListener(v -> {
+            currentSsid = wifiAdmin.getSSID();
+            tvSsid.setText(currentSsid);
         });
 
-        Button btnChange = (Button) findViewById(R.id.btn_wifi_activity_change);
-        btnChange.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String ssid = "\"" + "minote3" + "\"";
-                String pwd = "";
-                connect(ssid, pwd);
-            }
+        Button btnChange = findViewById(R.id.btn_wifi_activity_change);
+        btnChange.setOnClickListener(v -> {
+            String ssid = "\"" + "minote3" + "\"";
+            String pwd = "";
+            connect(ssid, pwd);
         });
     }
 
