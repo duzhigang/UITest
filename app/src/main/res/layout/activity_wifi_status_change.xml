@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal">
+
+    <TextView
+        android:id="@+id/wifi_status_change_activity_wifi_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Wifi连接状态：Connected" />
+
+    <TextView
+        android:id="@+id/wifi_status_change_activity_wifi_ssid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        tools:text="Wifi SSID：iarwifi" />
+
+</LinearLayout>

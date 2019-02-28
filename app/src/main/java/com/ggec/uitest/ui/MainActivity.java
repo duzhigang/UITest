@@ -19,8 +19,10 @@ import com.ggec.uitest.ui.downloadfile.UploadFileActivity;
 import com.ggec.uitest.ui.jdkversion.LambdaActivity;
 import com.ggec.uitest.ui.listview.LVActivity;
 import com.ggec.uitest.ui.seekbar.SeekBarActivity;
+import com.ggec.uitest.ui.socket.TcpStatusActivity;
 import com.ggec.uitest.ui.wifi.WPAEnterpriseActivity;
 import com.ggec.uitest.ui.wifi.WifiManagerActivity;
+import com.ggec.uitest.ui.wifi.WifiStatusChangeActivity;
 
 public class MainActivity extends FragmentActivity {
     private String TAG = "MainActivity";
@@ -33,7 +35,7 @@ public class MainActivity extends FragmentActivity {
         setContentView(R.layout.activity_main);
         Button btnStart = findViewById(R.id.btn_main_start);
         btnStart.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, WifiManagerActivity.class);
+            Intent intent = new Intent(MainActivity.this, WifiStatusChangeActivity.class);
             startActivity(intent);
         });
 

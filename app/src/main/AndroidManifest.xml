@@ -58,6 +58,9 @@
         <activity android:name=".ui.socket.SocketActivity"
             android:theme="@android:style/Theme.Holo.NoActionBar"/>
 
+        <activity android:name=".ui.socket.TcpStatusActivity"
+            android:theme="@android:style/Theme.Holo.NoActionBar"/>
+
         <activity android:name=".ui.stringcode.ChineseCodeActivity"
             android:theme="@android:style/Theme.Holo.NoActionBar"/>
 
@@ -68,6 +71,8 @@
             android:theme="@android:style/Theme.Holo.NoActionBar"/>
 
         <activity android:name=".ui.wifi.WifiManagerActivity"
+            android:theme="@android:style/Theme.Holo.NoActionBar"/>
+        <activity android:name=".ui.wifi.WifiStatusChangeActivity"
             android:theme="@android:style/Theme.Holo.NoActionBar"/>
 
         <activity android:name=".ui.downloadfile.DownLoadFileActivity"
