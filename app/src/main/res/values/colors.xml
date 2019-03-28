@@ -6,4 +6,9 @@
     <color name="transparent">#00000000</color>
 
     <color name="button_pressed">#80BFBFBF</color>
+
+    <color name="battery_20">#EE0000</color>
+    <color name="battery_40">#EE9A00</color>
+    <color name="battery_60">#FFFF00</color>
+    <color name="battery_100">#00FF00</color>
 </resources>

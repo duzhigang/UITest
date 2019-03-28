@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 背景  gradient是渐变,corners定义的是圆角 -->
+    <item android:id="@android:id/background">
+        <nine-patch
+            android:dither="true"
+            android:src="@drawable/ic_battery_frame" />
+    </item>
+    <!-- 进度条 -->
+    <item android:id="@android:id/progress"
+        android:left="1dp"
+        android:right="1dp"
+        android:top="1dp"
+        android:bottom="1dp">
+        <clip>
+            <shape>
+                <solid android:color="@color/battery_100"/>
+            </shape>
+        </clip>
+    </item>
+
+</layer-list>
