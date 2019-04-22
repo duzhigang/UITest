@@ -1,7 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">UITest</string>
-    <string name="main_act_start">启动</string>
-    <string name="wv_normal_fragment_load_status">加载状态：%s</string>
+    <string name="main_act_start">Start</string>
+    <string name="wv_normal_fragment_load_status">loading status：%s</string>
     <string-array name="wap_enp_activity_eap_methods">
         <item>PEAP</item>
         <item>TLS</item>
@@ -23,9 +24,7 @@
         <item>GTC</item>
     </string-array>
 
-    <string name="change_app_language_act_change_language">切换语言</string>
-    <string name="language_type">语言列表</string>
-    <string name="chinese_language">中文</string>
-    <string name="english_language">英文</string>
 
+    <string name="change_app_language_act_change_language">Change language</string>
+    <string name="language_type">Language list</string>
 </resources>

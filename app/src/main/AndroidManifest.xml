@@ -121,6 +121,9 @@
         <activity android:name=".ui.battery.BatteryUpdateActivity"
             android:theme="@android:style/Theme.Holo.NoActionBar"/>
 
+        <activity android:name=".ui.language.ChangeAppLanguageActivity"
+            android:theme="@android:style/Theme.Holo.NoActionBar"/>
+
     </application>
 
 </manifest>

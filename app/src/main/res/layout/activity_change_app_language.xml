@@ -8,10 +8,10 @@
     android:orientation="vertical">
 
     <Button
-        android:id="@+id/btn_main_start"
+        android:id="@+id/btn_act_change_app_language_start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="@string/main_act_start"/>
+        android:text="@string/change_app_language_act_change_language"/>
 
 </LinearLayout>

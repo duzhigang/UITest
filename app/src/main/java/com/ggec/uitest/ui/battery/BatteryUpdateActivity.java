@@ -16,6 +16,9 @@ import com.ggec.uitest.R;
 /**
  * Created by ggec on 2019/3/28.
  * 测试电池电量的显示与更新
+ * 采用两种方法来实现：
+ * (1).通过自定义View，手动绘制
+ * (2).通过使用ProgressBar控件，不同的电量区间设置不同的Drawable
  * */
 public class BatteryUpdateActivity extends FragmentActivity {
     private static final String TAG = "BatteryUpdateActivity";

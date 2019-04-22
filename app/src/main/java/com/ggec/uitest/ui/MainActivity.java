@@ -1,6 +1,7 @@
 package com.ggec.uitest.ui;
 
 import android.app.ActivityManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ConfigurationInfo;
 import android.os.Bundle;
@@ -18,12 +19,16 @@ import com.ggec.uitest.ui.downloadfile.DownLoadFileActivity;
 import com.ggec.uitest.ui.downloadfile.FileDownLoadActivity;
 import com.ggec.uitest.ui.downloadfile.UploadFileActivity;
 import com.ggec.uitest.ui.jdkversion.LambdaActivity;
+import com.ggec.uitest.ui.language.ChangeAppLanguageActivity;
 import com.ggec.uitest.ui.listview.LVActivity;
 import com.ggec.uitest.ui.seekbar.SeekBarActivity;
 import com.ggec.uitest.ui.socket.TcpStatusActivity;
 import com.ggec.uitest.ui.wifi.WPAEnterpriseActivity;
 import com.ggec.uitest.ui.wifi.WifiManagerActivity;
 import com.ggec.uitest.ui.wifi.WifiStatusChangeActivity;
+import com.ggec.uitest.wrap.MyContextWrapper;
+
+import java.util.Locale;
 
 public class MainActivity extends FragmentActivity {
     private String TAG = "MainActivity";
@@ -36,7 +41,7 @@ public class MainActivity extends FragmentActivity {
         setContentView(R.layout.activity_main);
         Button btnStart = findViewById(R.id.btn_main_start);
         btnStart.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, BatteryUpdateActivity.class);
+            Intent intent = new Intent(MainActivity.this, ChangeAppLanguageActivity.class);
             startActivity(intent);
         });
 
@@ -80,6 +85,14 @@ public class MainActivity extends FragmentActivity {
     //启动MainActivity
     startActivity(intent);
     */
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        //Public.Language为对应的资源格式后缀，比如"zh"
+        String sysLanguage = Locale.getDefault().getLanguage();
+        super.attachBaseContext(MyContextWrapper.wrap(newBase, sysLanguage));
+        Log.v( TAG,"attachBaseContext");
+    }
 
     @Override
     protected void onStart() {
