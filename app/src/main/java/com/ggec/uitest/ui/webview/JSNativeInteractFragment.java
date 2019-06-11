@@ -2,6 +2,7 @@ package com.ggec.uitest.ui.webview;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -11,7 +12,6 @@ import android.view.ViewGroup;
 import android.webkit.ConsoleMessage;
 import android.webkit.JsPromptResult;
 import android.webkit.JsResult;
-import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -34,23 +34,17 @@ public class JSNativeInteractFragment extends Fragment {
     @Nullable
     @Override
     @SuppressLint({"SetJavaScriptEnabled", "JavascriptInterface"})
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_js_native_interact, container, false);
         Button btnStart = view.findViewById(R.id.btn_js_native_interact_start);
-        btnStart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                webView.loadUrl("file:///android_asset/web.html");
+        btnStart.setOnClickListener(v -> {
+            webView.loadUrl("file:///android_asset/web.html");
 //                webView.loadUrl("http://www.w3school.com.cn/");
-            }
         });
         Button btnJsInvokeNative = view.findViewById(R.id.btn_js_native_interact_native_invoke_js);
-        btnJsInvokeNative.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // 注意调用的JS方法名要对应上调用javascript的native2js()方法
-                webView.loadUrl("javascript:native2js(3,8)");
-            }
+        btnJsInvokeNative.setOnClickListener(v -> {
+            // 注意调用的JS方法名要对应上调用javascript的native2js()方法
+            webView.loadUrl("javascript:native2js(3,8)");
         });
 
         webView = view.findViewById(R.id.wv_js_native_interact);
@@ -108,11 +102,6 @@ public class JSNativeInteractFragment extends Fragment {
 
     // 一定要在Html加载完毕后调用，否则会异常：Uncaught ReferenceError
     private void showJsResult() {
-        webView.evaluateJavascript("getBackResult()", new ValueCallback<String>() {
-            @Override
-            public void onReceiveValue(String value) {
-                Toast.makeText(getContext(), "从JS中返回的值为：" + value, Toast.LENGTH_SHORT).show();
-            }
-        });
+        webView.evaluateJavascript("getBackResult()", value -> Toast.makeText(getContext(), "从JS中返回的值为：" + value, Toast.LENGTH_SHORT).show());
     }
 }

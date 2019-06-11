@@ -9,7 +9,6 @@ import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
-import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -61,43 +60,37 @@ public class DownLoadFileActivity extends FragmentActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_download_file);
-        TextView tvFileName = (TextView) findViewById(R.id.tv_download_file_name);
+        TextView tvFileName = findViewById(R.id.tv_download_file_name);
         String fileName = url.substring(url.lastIndexOf("/") + 1);
         tvFileName.setText(fileName);
-        tvProgress = (TextView) findViewById(R.id.tv_download_file_progress);
-        Button btnStart = (Button) findViewById(R.id.btn_download_file_start);
-        btnStart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                new Progress().start(url);
-                DownloadUtil.get().download(url, "files", new DownloadUtil.OnDownloadListener() {
-                    @Override
-                    public void onDownloadSuccess() {
-                        mHandler.sendEmptyMessage(MSG_DOWNLOAD_SUCCESS);
-                    }
+        tvProgress = findViewById(R.id.tv_download_file_progress);
+        Button btnStart = findViewById(R.id.btn_download_file_start);
+        btnStart.setOnClickListener(v -> {
+//            new Progress().start(url);
+            DownloadUtil.get().download(url, "files", new DownloadUtil.OnDownloadListener() {
+                @Override
+                public void onDownloadSuccess() {
+                    mHandler.sendEmptyMessage(MSG_DOWNLOAD_SUCCESS);
+                }
 
-                    @Override
-                    public void onDownloading(int progress) {
-                        mHandler.obtainMessage(MSG_DOWNLOAD_PROGRESS, progress).sendToTarget();
-                    }
+                @Override
+                public void onDownloading(int progress) {
+                    mHandler.obtainMessage(MSG_DOWNLOAD_PROGRESS, progress).sendToTarget();
+                }
 
-                    @Override
-                    public void onDownloadFailed() {
-                        mHandler.sendEmptyMessage(MSG_DOWNLOAD_FAILED);
-                    }
-                });
-            }
+                @Override
+                public void onDownloadFailed() {
+                    mHandler.sendEmptyMessage(MSG_DOWNLOAD_FAILED);
+                }
+            });
         });
 
-        Button btnScan = (Button) findViewById(R.id.btn_download_file_scan);
-        btnScan.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getFileNames();
-                adapter.notifyDataSetChanged();
-            }
+        Button btnScan = findViewById(R.id.btn_download_file_scan);
+        btnScan.setOnClickListener(v -> {
+            getFileNames();
+            adapter.notifyDataSetChanged();
         });
-        ListView lvFiles = (ListView) findViewById(R.id.lv_download_file_names);
+        ListView lvFiles = findViewById(R.id.lv_download_file_names);
         adapter = new ArrayAdapter<String>(this, R.layout.one_item_left, R.id.tv_one_item_left_name, fileNames);
         lvFiles.setAdapter(adapter);
     }

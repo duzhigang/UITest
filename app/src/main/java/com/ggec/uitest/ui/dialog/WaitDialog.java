@@ -1,6 +1,7 @@
 package com.ggec.uitest.ui.dialog;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentManager;
@@ -63,10 +64,10 @@ public class WaitDialog extends DialogFragment {
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.dialog_wait, container);
 //        ProgressBar pbWait = (ProgressBar) view.findViewById(R.id.pb_wait_dialog_loading);
-        TextView tvContent = (TextView) view.findViewById(R.id.tv_wait_dialog_content);
+        TextView tvContent = view.findViewById(R.id.tv_wait_dialog_content);
         tvContent.setText(content);
         return view;
     }

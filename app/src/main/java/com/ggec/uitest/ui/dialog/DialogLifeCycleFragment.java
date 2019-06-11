@@ -2,6 +2,7 @@ package com.ggec.uitest.ui.dialog;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -35,31 +36,28 @@ public class DialogLifeCycleFragment extends Fragment{
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         Log.v(TAG,"onCreateView()");
         View view = inflater.inflate(R.layout.fragment_dialog_life_cycle, container,false);
-        Button btnStartDialog = (Button) view.findViewById(R.id.btn_dialog_life_cycle_start_dialog);
-        btnStartDialog.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.e(TAG,"启动Dialog");
-                String content = "测试普通的AlertDialog";
-                MyAlertDialog dialog = MyAlertDialog.newInstance(null,content,null,null);
-                dialog.setCallback(new Callback() {
-                    @Override
-                    public void callback(int position) {
-                        switch (position) {
-                            case 0:
-                                Log.e(TAG,"点击取消");
-                                break;
-                            case 1:
-                                Log.e(TAG,"点击确定");
-                                break;
-                        }
+        Button btnStartDialog = view.findViewById(R.id.btn_dialog_life_cycle_start_dialog);
+        btnStartDialog.setOnClickListener(v -> {
+            Log.i(TAG,"启动Dialog");
+            String content = "测试普通的AlertDialog";
+            MyAlertDialog dialog = MyAlertDialog.newInstance(null,content,null,null);
+            dialog.setCallback(new Callback() {
+                @Override
+                public void callback(int position) {
+                    switch (position) {
+                        case 0:
+                            Log.i(TAG,"点击取消");
+                            break;
+                        case 1:
+                            Log.i(TAG,"点击确定");
+                            break;
                     }
-                });
-                dialog.show(getFragmentManager(), "normal_dialog");
-            }
+                }
+            });
+            dialog.show(getFragmentManager(), "normal_dialog");
         });
         return view;
     }

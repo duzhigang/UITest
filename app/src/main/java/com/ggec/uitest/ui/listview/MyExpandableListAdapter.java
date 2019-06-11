@@ -80,7 +80,7 @@ public class MyExpandableListAdapter extends BaseExpandableListAdapter {
         if (convertView == null) {
             groupViewHolder = new GroupViewHolder();
             convertView = LayoutInflater.from(mContext).inflate(R.layout.group_item, null);
-            groupViewHolder.tvGroupName = (TextView) convertView.findViewById(R.id.tv_group_item_name);
+            groupViewHolder.tvGroupName = convertView.findViewById(R.id.tv_group_item_name);
             convertView.setTag(groupViewHolder);
         } else {
             groupViewHolder = (GroupViewHolder) convertView.getTag();
@@ -95,7 +95,7 @@ public class MyExpandableListAdapter extends BaseExpandableListAdapter {
         if (convertView == null) {
             childHolder = new ChildHolder();
             convertView = LayoutInflater.from(mContext).inflate(R.layout.child_grade_item, null);
-            childHolder.tvChildName = (TextView) convertView.findViewById(R.id.tv_child_grade_name);
+            childHolder.tvChildName = convertView.findViewById(R.id.tv_child_grade_name);
             convertView.setTag(childHolder);
         } else {
             childHolder = (ChildHolder) convertView.getTag();

@@ -4,14 +4,12 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 
 import com.ggec.uitest.R;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
-import java.net.StandardSocketOptions;
 import java.nio.ByteBuffer;
 import java.nio.channels.ClosedChannelException;
 import java.nio.channels.SelectableChannel;
@@ -27,7 +25,7 @@ import java.util.Iterator;
 public class TcpStatusActivity extends FragmentActivity {
     private static final String TAG = "TcpStatusActivity";
 
-    private String dstIp = "192.168.34.12";
+    private String dstIp = "192.168.11.33";
     private int dstPort = 60000;
     private Selector mSelector;
     private SocketChannel mChannel;
@@ -39,24 +37,18 @@ public class TcpStatusActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tcp_status);
         Button btnTcpStart = findViewById(R.id.btn_tcp_status_activity_start);
-        btnTcpStart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.v(TAG,"启动Tcp连接");
-                initialize();
-            }
+        btnTcpStart.setOnClickListener(v -> {
+            Log.v(TAG,"启动Tcp连接");
+            initialize();
         });
 
         Button btnTcpClose = findViewById(R.id.btn_tcp_status_activity_close);
-        btnTcpClose.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.v(TAG,"断开Tcp连接");
-                try {
-                    mChannel.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+        btnTcpClose.setOnClickListener(v -> {
+            Log.v(TAG,"断开Tcp连接");
+            try {
+                mChannel.close();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         });
 
@@ -70,12 +62,7 @@ public class TcpStatusActivity extends FragmentActivity {
     }
 
     private void initialize() {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                connect();
-            }
-        }).start();
+        new Thread(this::connect).start();
     }
 
     private void connect(){

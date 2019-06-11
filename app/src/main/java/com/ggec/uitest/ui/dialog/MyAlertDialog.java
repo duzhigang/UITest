@@ -2,6 +2,7 @@ package com.ggec.uitest.ui.dialog;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.FragmentManager;
@@ -81,30 +82,24 @@ public class MyAlertDialog extends DialogFragment {
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         Log.v(TAG,"onCreateView()");
         View view = inflater.inflate(R.layout.dialog_my_alert, container);
-        TextView tvTitle = (TextView) view.findViewById(R.id.tv_dialog_my_alert_title);
+        TextView tvTitle = view.findViewById(R.id.tv_dialog_my_alert_title);
         tvTitle.setText(title);
-        TextView tvContent = (TextView) view.findViewById(R.id.tv_dialog_my_alert_content);
+        TextView tvContent = view.findViewById(R.id.tv_dialog_my_alert_content);
         tvContent.setText(content);
-        Button btnNegative = (Button) view.findViewById(R.id.btn_dialog_my_alert_nag);
+        Button btnNegative = view.findViewById(R.id.btn_dialog_my_alert_nag);
         btnNegative.setText(negativeName);
-        btnNegative.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dismiss();
-                callback.callback(0);
-            }
+        btnNegative.setOnClickListener(v -> {
+            dismiss();
+            callback.callback(0);
         });
-        Button btnPositive = (Button) view.findViewById(R.id.btn_dialog_my_alert_pos);
+        Button btnPositive = view.findViewById(R.id.btn_dialog_my_alert_pos);
         btnPositive.setText(positiveName);
-        btnPositive.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dismiss();
-                callback.callback(1);
-            }
+        btnPositive.setOnClickListener(v -> {
+            dismiss();
+            callback.callback(1);
         });
 
         return view;

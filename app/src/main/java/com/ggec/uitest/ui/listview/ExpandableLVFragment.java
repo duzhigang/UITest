@@ -2,6 +2,7 @@ package com.ggec.uitest.ui.listview;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -9,7 +10,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ExpandableListView;
 
 import com.ggec.uitest.R;
@@ -38,47 +38,41 @@ public class ExpandableLVFragment extends Fragment implements View.OnClickListen
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         Log.e(TAG,"onCreateView");
         View view = inflater.inflate(R.layout.fragment_expandable_lv, container, false);
         String[] kinds = {"初级组", "高级组"};
         updateAllGroup();
         adapter = new MyExpandableListAdapter(getActivity(), kinds, primaryGrades, seniorStudents);
-        final ExpandableListView elvGrades = (ExpandableListView) view.findViewById(R.id.elv_grades);
+        final ExpandableListView elvGrades = view.findViewById(R.id.elv_grades);
         elvGrades.setGroupIndicator(null);
         elvGrades.setAdapter(adapter);
         // 将子Group默认展开
         for (int i = 0; i < 2; i++) {
             elvGrades.expandGroup(i);
         }
-        elvGrades.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
-            @Override
-            public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
-                if (groupPosition == 0 && childPosition < primaryGrades.size() - 1) {
-                    FragmentTransaction ft = getFragmentManager().beginTransaction();
-                    GradeFragment fragment = new GradeFragment();
-                    fragment.setStudents(primaryGrades.get(childPosition));
-                    ft.addToBackStack(null);
-                    ft.replace(R.id.lv_frame, fragment).commit();
-                }
-                return false;
+        elvGrades.setOnChildClickListener((parent, v, groupPosition, childPosition, id) -> {
+            if (groupPosition == 0 && childPosition < primaryGrades.size() - 1) {
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                GradeFragment fragment = new GradeFragment();
+                fragment.setStudents(primaryGrades.get(childPosition));
+                ft.addToBackStack(null);
+                ft.replace(R.id.lv_frame, fragment).commit();
             }
+            return false;
         });
 
-        elvGrades.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                final long packedPosition = elvGrades.getExpandableListPosition(position);
-                final int groupPosition = ExpandableListView.getPackedPositionGroup(packedPosition);
-                final int childPosition = ExpandableListView.getPackedPositionChild(packedPosition);
-                if (childPosition == -1) {
-                    Log.v(TAG,"长按的是group：" + groupPosition);
-                } else {
-                    Log.v(TAG,"长按的是group：" + groupPosition + ",child = " + childPosition);
-                }
-                return true;
-//                if (childPosition != -1 && groupPosition == )
+        elvGrades.setOnItemLongClickListener((parent, view1, position, id) -> {
+            final long packedPosition = elvGrades.getExpandableListPosition(position);
+            final int groupPosition = ExpandableListView.getPackedPositionGroup(packedPosition);
+            final int childPosition = ExpandableListView.getPackedPositionChild(packedPosition);
+            if (childPosition == -1) {
+                Log.v(TAG,"长按的是group：" + groupPosition);
+            } else {
+                Log.v(TAG,"长按的是group：" + groupPosition + ",child = " + childPosition);
             }
+            return true;
+//                if (childPosition != -1 && groupPosition == )
         });
 
         view.findViewById(R.id.btn_expandable_lv_modify_frag).setOnClickListener(this);

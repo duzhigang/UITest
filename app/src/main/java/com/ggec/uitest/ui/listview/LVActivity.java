@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
-import android.view.View;
 import android.widget.Button;
 
 import com.ggec.uitest.R;
@@ -22,24 +21,18 @@ public class LVActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lv);
         Button btnStartLV = findViewById(R.id.btn_start_lv);
-        btnStartLV.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-                LVFragment fragment = new LVFragment();
-                ft.replace(R.id.lv_frame, fragment).commit();
-            }
+        btnStartLV.setOnClickListener(v -> {
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            LVFragment fragment = new LVFragment();
+            ft.replace(R.id.lv_frame, fragment).commit();
         });
 
         Button btnStartExpandableLV = findViewById(R.id.btn_start_elv);
-        btnStartExpandableLV.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        btnStartExpandableLV.setOnClickListener(v -> {
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
 //                ExpandableLVFragment fragment = new ExpandableLVFragment();
-                ELVAddViewFragment fragment = new ELVAddViewFragment();
-                ft.replace(R.id.lv_frame, fragment).commit();
-            }
+            ELVAddViewFragment fragment = new ELVAddViewFragment();
+            ft.replace(R.id.lv_frame, fragment).commit();
         });
     }
 }

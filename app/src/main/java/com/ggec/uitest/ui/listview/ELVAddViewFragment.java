@@ -2,7 +2,6 @@ package com.ggec.uitest.ui.listview;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Message;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -44,54 +43,42 @@ public class ELVAddViewFragment extends Fragment {
         groupTwo.add("设备D2");
         groupTwo.add("设备D3");
         View view = inflater.inflate(R.layout.fragment_elv_add_view, container, false);
-        view.findViewById(R.id.btn_delete_a).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (countOne > 0) {
-                    countOne--;
-                }
-                if (groupOne.size() > 0) {
-                    String str = groupOne.get(groupOne.size() - 1);
-                    groupOne.remove(str);
-                    refresh();
-                } else {
-                    Toast.makeText(getActivity(), "GroupOne不存在数据", Toast.LENGTH_SHORT).show();
-                }
+        view.findViewById(R.id.btn_delete_a).setOnClickListener(view1 -> {
+            if (countOne > 0) {
+                countOne--;
             }
-        });
-
-        view.findViewById(R.id.btn_add_a).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                countOne++;
-                groupOne.add("新增One" + countOne);
+            if (groupOne.size() > 0) {
+                String str = groupOne.get(groupOne.size() - 1);
+                groupOne.remove(str);
                 refresh();
+            } else {
+                Toast.makeText(getActivity(), "GroupOne不存在数据", Toast.LENGTH_SHORT).show();
             }
         });
 
-        view.findViewById(R.id.btn_delete_b).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (countTwo > 0) {
-                    countTwo--;
-                }
-                if (groupTwo.size() > 0) {
-                    String str = groupTwo.get(groupTwo.size() - 1);
-                    groupTwo.remove(str);
-                    refresh();
-                } else {
-                    Toast.makeText(getActivity(), "GroupTwo不存在数据", Toast.LENGTH_SHORT).show();
-                }
-            }
+        view.findViewById(R.id.btn_add_a).setOnClickListener(view12 -> {
+            countOne++;
+            groupOne.add("新增One" + countOne);
+            refresh();
         });
 
-        view.findViewById(R.id.btn_add_b).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                countTwo++;
-                groupTwo.add("新增Two" + countTwo);
+        view.findViewById(R.id.btn_delete_b).setOnClickListener(view13 -> {
+            if (countTwo > 0) {
+                countTwo--;
+            }
+            if (groupTwo.size() > 0) {
+                String str = groupTwo.get(groupTwo.size() - 1);
+                groupTwo.remove(str);
                 refresh();
+            } else {
+                Toast.makeText(getActivity(), "GroupTwo不存在数据", Toast.LENGTH_SHORT).show();
             }
+        });
+
+        view.findViewById(R.id.btn_add_b).setOnClickListener(view14 -> {
+            countTwo++;
+            groupTwo.add("新增Two" + countTwo);
+            refresh();
         });
 
         adapter = new DataAdapter(getActivity(), kinds, groupOne, groupTwo);
@@ -103,18 +90,10 @@ public class ELVAddViewFragment extends Fragment {
         for (int i = 0; i < 2; i++) {
             elv.expandGroup(i);
         }
-        elv.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
-            @Override
-            public boolean onGroupClick(ExpandableListView expandableListView, View view, int i, long l) {
-                return true;
-            }
-        });
-        elv.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
-            @Override
-            public boolean onChildClick(ExpandableListView expandableListView, View view, int i, int i1, long l) {
-                Log.i(TAG,"选中的Item为：groupPosition = " + i + ",childPosition = " + i1);
-                return false;
-            }
+        elv.setOnGroupClickListener((expandableListView, view15, i, l) -> true);
+        elv.setOnChildClickListener((expandableListView, view16, i, i1, l) -> {
+            Log.i(TAG,"选中的Item为：groupPosition = " + i + ",childPosition = " + i1);
+            return false;
         });
 //        addFooterView();
 //        addHeaderView();

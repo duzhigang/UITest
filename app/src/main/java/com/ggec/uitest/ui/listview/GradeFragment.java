@@ -1,6 +1,7 @@
 package com.ggec.uitest.ui.listview;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -25,12 +26,12 @@ public class GradeFragment extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_grade, container, false);
-        TextView tvTitle = (TextView) view.findViewById(R.id.tv_grade_fragment_title);
+        TextView tvTitle = view.findViewById(R.id.tv_grade_fragment_title);
         tvTitle.setText(grade.name);
         StudentAdapter adapter = new StudentAdapter(getActivity(), grade.students);
-        ListView lvStudents = (ListView) view.findViewById(R.id.lv_students);
+        ListView lvStudents = view.findViewById(R.id.lv_students);
         lvStudents.setAdapter(adapter);
         return view;
     }

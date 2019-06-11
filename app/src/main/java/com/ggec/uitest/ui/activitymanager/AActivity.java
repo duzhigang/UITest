@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -26,13 +25,10 @@ public class AActivity extends FragmentActivity {
         TextView tvTitle = findViewById(R.id.tv_activity_a_title);
         tvTitle.setText("A Activity");
         Button btnStart = findViewById(R.id.btn_activity_a_start);
-        btnStart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(AActivity.this, TActivity.class);
+        btnStart.setOnClickListener(v -> {
+            Intent intent = new Intent(AActivity.this, TActivity.class);
 //                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-                startActivity(intent);
-            }
+            startActivity(intent);
         });
     }
 

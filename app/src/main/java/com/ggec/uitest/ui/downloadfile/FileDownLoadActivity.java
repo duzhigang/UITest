@@ -5,7 +5,6 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -58,32 +57,19 @@ public class FileDownLoadActivity extends FragmentActivity {
         tvProgress = findViewById(R.id.tv_file_download_progress);
 
         Button btnStart = findViewById(R.id.btn_file_download_start);
-        btnStart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (isFileExist(filePath)) {
-                    Toast.makeText(FileDownLoadActivity.this, "该文件已经存在!", Toast.LENGTH_SHORT).show();
-                } else {
-                    start_single(fileUrl);
-                }
+        btnStart.setOnClickListener(v -> {
+            if (isFileExist(filePath)) {
+                Toast.makeText(FileDownLoadActivity.this, "该文件已经存在!", Toast.LENGTH_SHORT).show();
+            } else {
+                start_single(fileUrl);
             }
         });
 
         Button btnPause = findViewById(R.id.btn_file_download_pause);
-        btnPause.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                pause_single();
-            }
-        });
+        btnPause.setOnClickListener(v -> pause_single());
 
         Button btnCancel = findViewById(R.id.btn_file_download_cancel);
-        btnCancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                delete_single();
-            }
-        });
+        btnCancel.setOnClickListener(v -> delete_single());
 
     }
 
@@ -102,7 +88,7 @@ public class FileDownLoadActivity extends FragmentActivity {
                          protected void progress(BaseDownloadTask task, int soFarBytes, int totalBytes) {
 //                             Log.i(TAG, "progress taskId:" + task.getId() + ",soFarBytes:" + soFarBytes + ",totalBytes:" + totalBytes);
                              int progress = (int) (soFarBytes * 1.0 / totalBytes * 100);
-                             tvProgress.setText(progress + "%");
+                             tvProgress.setText(String.format("%d%", progress));
                              updateSpeed(task.getSpeed());
                          }
 
@@ -137,7 +123,7 @@ public class FileDownLoadActivity extends FragmentActivity {
     }
 
     public void pause_single(){
-        Log.d(TAG,"pause_single task:"+singleTaskId);
+        Log.i(TAG,"pause_single task:"+singleTaskId);
         FileDownloader.getImpl().pause(singleTaskId);
     }
 

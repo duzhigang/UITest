@@ -2,6 +2,7 @@ package com.ggec.uitest.ui.lifecycle;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -34,19 +35,16 @@ public class OneLifeFragment extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         Log.v(TAG,"onCreateView()");
         View view = inflater.inflate(R.layout.fragment_one_life,container,false);
-        Button btnStart = (Button) view.findViewById(R.id.btn_start_two_life_fragment);
-        btnStart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                TwoLifeFragment fragment = new TwoLifeFragment();
-                fragment.setTitle("OneLifeFragment传过来的名字");
-                FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.addToBackStack(null);
-                ft.replace(R.id.two_life_activity_frame, fragment).commit();
-            }
+        Button btnStart = view.findViewById(R.id.btn_start_two_life_fragment);
+        btnStart.setOnClickListener(v -> {
+            TwoLifeFragment fragment = new TwoLifeFragment();
+            fragment.setTitle("OneLifeFragment传过来的名字");
+            FragmentTransaction ft = getFragmentManager().beginTransaction();
+            ft.addToBackStack(null);
+            ft.replace(R.id.two_life_activity_frame, fragment).commit();
         });
         return view;
     }

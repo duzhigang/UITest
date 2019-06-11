@@ -106,16 +106,13 @@ public class WPAEnterpriseActivity extends FragmentActivity {
         etPwd = findViewById(R.id.et_wpa_enp_pwd);
 
         Button btnConnect = findViewById(R.id.btn_wpa_enp_connect);
-        btnConnect.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                identity = etIdentity.getText().toString().trim();
-                String pwd = etPwd.getText().toString().trim();
-                if (viewPhase2.getVisibility() == View.GONE) {
-                    phase2 = "";
-                }
-                Log.e(TAG,"eapMethod = " + eapMethod + ",phase2 = " + phase2 + ",identity = " + identity + ",pwd = " + pwd);
+        btnConnect.setOnClickListener(v -> {
+            identity = etIdentity.getText().toString().trim();
+            String pwd = etPwd.getText().toString().trim();
+            if (viewPhase2.getVisibility() == View.GONE) {
+                phase2 = "";
             }
+            Log.e(TAG,"eapMethod = " + eapMethod + ",phase2 = " + phase2 + ",identity = " + identity + ",pwd = " + pwd);
         });
     }
 }

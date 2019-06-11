@@ -50,15 +50,12 @@ public class BTStatusFragment extends Fragment {
         tvBTStatus = view.findViewById(R.id.tv_bt_status);
         tvBTStatus.setText("未连上设备的蓝牙");
         Button btnSet = view.findViewById(R.id.bt_bt_status);
-        btnSet.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //                Intent intent = new Intent();
+        btnSet.setOnClickListener(view1 -> {
+//                Intent intent = new Intent();
 //                intent.setClassName("com.android.settings","com.android.settings.bluetooth.BluetoothSettings");
 //                intent.setClassName("com.android.settings","com.android.settings.Settings$BluetoothSettingsActivity");
-                Intent intent = new Intent(ACTION_BLUETOOTH_SETTINGS);
-                startActivity(intent);
-            }
+            Intent intent = new Intent(ACTION_BLUETOOTH_SETTINGS);
+            startActivity(intent);
         });
         return view;
     }

@@ -6,9 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 import com.ggec.uitest.R;
 
@@ -39,12 +37,9 @@ public class TActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_t);
         Button btnStart = findViewById(R.id.btn_activity_t_start);
-        btnStart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(TActivity.this, BActivity.class);
-                startActivity(intent);
-            }
+        btnStart.setOnClickListener(v -> {
+            Intent intent = new Intent(TActivity.this, BActivity.class);
+            startActivity(intent);
         });
 
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
@@ -85,7 +80,7 @@ public class TActivity extends FragmentActivity {
 
     @Override
     protected void onNewIntent(Intent intent) {
-        Log.e(TAG,"onNewIntent().");
+        Log.i(TAG,"onNewIntent().");
         super.onNewIntent(intent);
     }
 }

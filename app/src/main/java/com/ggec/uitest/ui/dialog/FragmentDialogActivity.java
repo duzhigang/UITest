@@ -6,7 +6,6 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 
 import com.ggec.uitest.R;
-import com.ggec.uitest.ui.dialog.DialogLifeCycleFragment;
 
 /**
  * Created by ggec on 2018/8/31.

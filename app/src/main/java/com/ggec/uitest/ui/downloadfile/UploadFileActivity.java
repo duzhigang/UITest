@@ -6,7 +6,6 @@ import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -23,8 +22,6 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
-import okhttp3.internal.Util;
-import okio.Buffer;
 import okio.BufferedSink;
 import okio.Okio;
 import okio.Source;
@@ -65,12 +62,7 @@ public class UploadFileActivity extends FragmentActivity {
         tvFileName.setText(fileName);
         tvProgress = findViewById(R.id.tv_upload_file_progress);
         Button btnStart = findViewById(R.id.btn_upload_file_start);
-        btnStart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                checkReadyUpload(notifyUpdateUrl);
-            }
-        });
+        btnStart.setOnClickListener(v -> checkReadyUpload(notifyUpdateUrl));
     }
 
     private Handler mHandler = new Handler() {

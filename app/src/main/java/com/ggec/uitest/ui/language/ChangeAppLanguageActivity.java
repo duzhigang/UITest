@@ -1,10 +1,8 @@
 package com.ggec.uitest.ui.language;
 
-import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Fragment;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -13,7 +11,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -36,12 +33,7 @@ public class ChangeAppLanguageActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_app_language);
         Button btnChange = findViewById(R.id.btn_act_change_app_language_start);
-        btnChange.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showListDialog();
-            }
-        });
+        btnChange.setOnClickListener(v -> showListDialog());
     }
 
     private void showListDialog() {
@@ -49,26 +41,23 @@ public class ChangeAppLanguageActivity extends FragmentActivity {
         AlertDialog.Builder listDialog =
                 new AlertDialog.Builder(this);
         listDialog.setTitle(R.string.language_type);
-        listDialog.setItems(items, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                // which 下标从0开始
-                if (which == 0) {
-                    language = "ch";
-                } else {
-                    language = "en";
-                }
-                SharedPreferences pre = getSharedPreferences("LanguageInput", MODE_PRIVATE);
-                SharedPreferences.Editor editor = pre.edit();
-                editor.putString("languageType",language);
-                editor.apply();
-                Log.v(TAG,"选择的语言:" + language);
-                Toast.makeText(ChangeAppLanguageActivity.this, "你点击了" + items[which], Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(ChangeAppLanguageActivity.this, ChangeAppLanguageActivity.class);
-//                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
+        listDialog.setItems(items, (dialog, which) -> {
+            // which 下标从0开始
+            if (which == 0) {
+                language = "ch";
+            } else {
+                language = "en";
             }
+            SharedPreferences pre = getSharedPreferences("LanguageInput", MODE_PRIVATE);
+            SharedPreferences.Editor editor = pre.edit();
+            editor.putString("languageType",language);
+            editor.apply();
+            Log.v(TAG,"选择的语言:" + language);
+            Toast.makeText(ChangeAppLanguageActivity.this, "你点击了" + items[which], Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(ChangeAppLanguageActivity.this, ChangeAppLanguageActivity.class);
+//                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
         });
         listDialog.show();
     }

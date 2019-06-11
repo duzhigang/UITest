@@ -124,6 +124,13 @@
         <activity android:name=".ui.language.ChangeAppLanguageActivity"
             android:theme="@android:style/Theme.Holo.NoActionBar"/>
 
+        <!--测试EventBus的Activity-->
+        <activity android:name=".ui.eventbus.EventBusActivity"
+            android:theme="@android:style/Theme.Holo.NoActionBar"/>
+
+        <activity android:name=".ui.eventbus.EBSecondActivity"
+            android:theme="@android:style/Theme.Holo.NoActionBar"/>
+
     </application>
 
 </manifest>

@@ -47,9 +47,9 @@ public class StudentAdapter extends BaseAdapter {
         if (convertView == null) {
             viewHolder = new ViewHolder();
             convertView = LayoutInflater.from(mContext).inflate(R.layout.student_item, null);
-            viewHolder.tvName = (TextView) convertView.findViewById(R.id.tv_student_name);
-            viewHolder.tvAge = (TextView) convertView.findViewById(R.id.tv_student_age);
-            viewHolder.tvFruit = (TextView) convertView.findViewById(R.id.tv_student_fruit);
+            viewHolder.tvName = convertView.findViewById(R.id.tv_student_name);
+            viewHolder.tvAge = convertView.findViewById(R.id.tv_student_age);
+            viewHolder.tvFruit = convertView.findViewById(R.id.tv_student_fruit);
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();

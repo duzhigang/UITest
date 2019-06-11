@@ -84,7 +84,7 @@ public class BatteryUpdateActivity extends FragmentActivity {
 
     // 定时100s，1s更新一次电量
     private void updateThread() {
-        new Thread(() -> update()).start();
+        new Thread(this::update).start();
     }
 
     private void update() {

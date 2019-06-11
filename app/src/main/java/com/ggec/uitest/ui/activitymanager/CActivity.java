@@ -5,12 +5,10 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.ggec.uitest.R;
-import com.ggec.uitest.ui.MainActivity;
 
 /**
  * Created by ggec on 2018/10/22.
@@ -27,12 +25,9 @@ public class CActivity extends FragmentActivity {
         TextView tvTitle = findViewById(R.id.tv_activity_a_title);
         tvTitle.setText("C Activity");
         Button btnStart = findViewById(R.id.btn_activity_a_start);
-        btnStart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(CActivity.this, TActivity.class);
-                startActivity(intent);
-            }
+        btnStart.setOnClickListener(v -> {
+            Intent intent = new Intent(CActivity.this, TActivity.class);
+            startActivity(intent);
         });
     }
 

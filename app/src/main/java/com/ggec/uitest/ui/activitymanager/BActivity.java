@@ -1,12 +1,10 @@
 package com.ggec.uitest.ui.activitymanager;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -27,12 +25,9 @@ public class BActivity extends FragmentActivity {
         TextView tvTitle = findViewById(R.id.tv_activity_a_title);
         tvTitle.setText("B Activity");
         Button btnStart = findViewById(R.id.btn_activity_a_start);
-        btnStart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(BActivity.this, CActivity.class);
-                startActivity(intent);
-            }
+        btnStart.setOnClickListener(v -> {
+            Intent intent = new Intent(BActivity.this, CActivity.class);
+            startActivity(intent);
         });
     }
 

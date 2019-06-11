@@ -3,9 +3,9 @@ package com.ggec.uitest.ui.activitymanager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,20 +36,17 @@ public class TTwoFragment extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         Log.v(TAG,"onCreateView()");
         View view = inflater.inflate(R.layout.activity_a, container, false);
         TextView tvTitle = view.findViewById(R.id.tv_activity_a_title);
         tvTitle.setText("TTwo Fragment");
         Button btnStart = view.findViewById(R.id.btn_activity_a_start);
-        btnStart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), TActivity.class);
+        btnStart.setOnClickListener(v -> {
+            Intent intent = new Intent(getActivity(), TActivity.class);
 //                intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-                startActivity(intent);
-                getActivity().finish();
-            }
+            startActivity(intent);
+            getActivity().finish();
         });
         return view;
     }

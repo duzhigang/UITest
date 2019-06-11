@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 
 import com.ggec.uitest.R;
@@ -24,13 +23,10 @@ public class OneLifeActivity extends FragmentActivity {
         Log.v(TAG,"onCreate().");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_one_cycle);
-        Button btnSecond = (Button) findViewById(R.id.btn_one_cycle_activity);
-        btnSecond.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(OneLifeActivity.this, TwoLifeActivity.class);
-                startActivity(intent);
-            }
+        Button btnSecond = findViewById(R.id.btn_one_cycle_activity);
+        btnSecond.setOnClickListener(v -> {
+            Intent intent = new Intent(OneLifeActivity.this, TwoLifeActivity.class);
+            startActivity(intent);
         });
     }
 

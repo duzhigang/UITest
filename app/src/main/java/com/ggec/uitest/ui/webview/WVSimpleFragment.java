@@ -2,10 +2,10 @@ package com.ggec.uitest.ui.webview;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,16 +30,11 @@ public class WVSimpleFragment extends Fragment {
     @Nullable
     @Override
     @SuppressLint("SetJavaScriptEnabled")
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         Log.v(TAG,"onCreateView()");
         View view = inflater.inflate(R.layout.fragment_wv_simple, container, false);
         ImageButton imgBtnBack = view.findViewById(R.id.imgbtn_wv_simple_back);
-        imgBtnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getFragmentManager().popBackStack();
-            }
-        });
+        imgBtnBack.setOnClickListener(v -> getFragmentManager().popBackStack());
 
         webView = view.findViewById(R.id.wv_simple_webview);
         WebSettings mWebSettings = webView.getSettings();

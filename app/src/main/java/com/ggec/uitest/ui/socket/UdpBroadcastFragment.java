@@ -2,6 +2,7 @@ package com.ggec.uitest.ui.socket;
 
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.util.Log;
@@ -12,7 +13,6 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.ggec.uitest.R;
-import com.ggec.uitest.ui.socket.Scanner;
 
 import static android.content.Context.WIFI_SERVICE;
 
@@ -28,40 +28,24 @@ public class UdpBroadcastFragment extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_udp_broadcast, container, false);
         String broadcastIp = getBroadcastIp();
         scanner = new Scanner(broadcastIp);
-        Button btnSendStart = (Button) view.findViewById(R.id.btn_udp_broadcast_send_start);
-        btnSendStart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.e(TAG,"开始发送广播");
-                scanner.send();
-            }
+        Button btnSendStart = view.findViewById(R.id.btn_udp_broadcast_send_start);
+        btnSendStart.setOnClickListener(v -> {
+            Log.e(TAG,"开始发送广播");
+            scanner.send();
         });
-        Button btnSendStop = (Button) view.findViewById(R.id.btn_udp_broadcast_send_close);
-        btnSendStop.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getActivity(), "暂未实现", Toast.LENGTH_SHORT).show();
-            }
+        Button btnSendStop = view.findViewById(R.id.btn_udp_broadcast_send_close);
+        btnSendStop.setOnClickListener(v -> Toast.makeText(getActivity(), "暂未实现", Toast.LENGTH_SHORT).show());
+        Button btnRecStart = view.findViewById(R.id.btn_udp_broadcast_rec_start);
+        btnRecStart.setOnClickListener(v -> {
+            Log.e(TAG,"接收广播");
+            scanner.receive();
         });
-        Button btnRecStart = (Button) view.findViewById(R.id.btn_udp_broadcast_rec_start);
-        btnRecStart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.e(TAG,"接收广播");
-                scanner.receive();
-            }
-        });
-        Button btnRecStop = (Button) view.findViewById(R.id.btn_udp_broadcast_rec_close);
-        btnRecStop.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getActivity(), "暂未实现", Toast.LENGTH_SHORT).show();
-            }
-        });
+        Button btnRecStop = view.findViewById(R.id.btn_udp_broadcast_rec_close);
+        btnRecStop.setOnClickListener(v -> Toast.makeText(getActivity(), "暂未实现", Toast.LENGTH_SHORT).show());
         return view;
     }
 

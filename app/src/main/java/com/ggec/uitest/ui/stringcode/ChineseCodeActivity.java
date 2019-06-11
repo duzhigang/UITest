@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -28,16 +27,13 @@ public class ChineseCodeActivity extends FragmentActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chinese_code);
-        final TextView tvName = (TextView) findViewById(R.id.tv_chinese_code_name);
+        final TextView tvName = findViewById(R.id.tv_chinese_code_name);
         tvName.setText(str);
-        Button btnShowChinese = (Button) findViewById(R.id.btn_chinese_code_show);
-        btnShowChinese.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String result = hexStringToString(str);
-                Log.e(TAG,"result = " + result);
-                tvName.setText(result);
-            }
+        Button btnShowChinese = findViewById(R.id.btn_chinese_code_show);
+        btnShowChinese.setOnClickListener(v -> {
+            String result = hexStringToString(str);
+            Log.e(TAG,"result = " + result);
+            tvName.setText(result);
         });
     }
 
