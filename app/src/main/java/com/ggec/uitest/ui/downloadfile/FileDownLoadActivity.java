@@ -22,8 +22,7 @@ import java.io.File;
 /**
  * Created by ggec on 2018/11/9.
  * 采用filedownloader库实现文件的断点下载，未下完之前是.temp文件，下载完后去掉.temp后缀。
- * 目前1.6.9有点问题，点两下下载都执行error方法，再点一下会从新开始下载；
- * 最新的1.7.5(1.7.0-1.7.5下载时，有些URL获取文件大小为-1)，但是支持断点下载
+ * 最新的1.7.5(1.7.0-1.7.5下载时，有些URL获取文件大小为-1)，支持断点下载
  */
 
 public class FileDownLoadActivity extends FragmentActivity {
@@ -58,11 +57,7 @@ public class FileDownLoadActivity extends FragmentActivity {
 
         Button btnStart = findViewById(R.id.btn_file_download_start);
         btnStart.setOnClickListener(v -> {
-            if (isFileExist(filePath)) {
-                Toast.makeText(FileDownLoadActivity.this, "该文件已经存在!", Toast.LENGTH_SHORT).show();
-            } else {
-                start_single(fileUrl);
-            }
+            start_single(fileUrl);
         });
 
         Button btnPause = findViewById(R.id.btn_file_download_pause);
@@ -75,7 +70,8 @@ public class FileDownLoadActivity extends FragmentActivity {
 
     private void start_single(String url) {
         BaseDownloadTask singleTask = FileDownloader.getImpl().create(url)
-                .setPath(filePath, false)
+//                .setPath(filePath, false)
+                .setPath(fileDirectory, true)
                 .setCallbackProgressTimes(300)  // 下载过程中FileDownloadListener#progress最大回调次数
                 .setMinIntervalUpdateSpeed(400) // 设置下载中刷新下载速度的最小间隔
                 .setListener(new FileDownloadListener() {
@@ -88,7 +84,7 @@ public class FileDownLoadActivity extends FragmentActivity {
                          protected void progress(BaseDownloadTask task, int soFarBytes, int totalBytes) {
 //                             Log.i(TAG, "progress taskId:" + task.getId() + ",soFarBytes:" + soFarBytes + ",totalBytes:" + totalBytes);
                              int progress = (int) (soFarBytes * 1.0 / totalBytes * 100);
-                             tvProgress.setText(String.format("%d%", progress));
+                             tvProgress.setText(String.format("%d%%", progress));
                              updateSpeed(task.getSpeed());
                          }
 
@@ -133,6 +129,7 @@ public class FileDownLoadActivity extends FragmentActivity {
     }
 
     // 判断当前文件是否存在，如存在给出提示，如不存在，开始下载
+    // FileDownload库已经支持断点下载，只要本地存在该文件就不下载，所以不需要
     public boolean isFileExist(String filePath) {
         File file = new File(filePath);
         return file.exists();
