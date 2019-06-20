@@ -28,7 +28,7 @@ public class MainActivity extends FragmentActivity {
         setContentView(R.layout.activity_main);
         Button btnStart = findViewById(R.id.btn_main_start);
         btnStart.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, FileDownLoadActivity.class);
+            Intent intent = new Intent(MainActivity.this, FragmentDialogActivity.class);
             startActivity(intent);
         });
 

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,6 +17,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.ggec.uitest.R;
+import com.ggec.uitest.utils.ScreenUtil;
 
 
 /**
@@ -26,6 +28,7 @@ import com.ggec.uitest.R;
 
 public class MyAlertDialog extends DialogFragment {
     private static final String TAG = "MyNormalDialog";
+    private static final float WIDTH_PERCENT = 0.8f;
 
     private Callback callback;
     private String title = "";
@@ -46,14 +49,20 @@ public class MyAlertDialog extends DialogFragment {
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
+        Log.v(TAG,"onActivityCreated()");
         super.onActivityCreated(savedInstanceState);
         Window window = getDialog().getWindow();
-        if (window != null) {
-            WindowManager.LayoutParams params = window.getAttributes();
-            float scale = getActivity().getApplication().getResources().getDisplayMetrics().density;
-            params.width = (int) (270 * scale + 0.5f);  // dp2px
-            getDialog().getWindow().setAttributes(params);
-        }
+        if (window == null) return;
+        FragmentActivity activity = getActivity();
+        if (activity == null) return;
+        WindowManager.LayoutParams params = window.getAttributes();
+        // 设置Dialog的Width
+        params.width = (int) (ScreenUtil.getScreenWidth(activity) * WIDTH_PERCENT);
+        // 设置窗体本身透明度 0.0f~1.0f(完全透明~完全不透明)
+//        params.alpha = 0.5f;
+        // 设置背景黑暗度 0.0f~1.0f(完全不暗~完全暗),设置了之后style对应的预先设置值无效
+        params.dimAmount = 0.5f;
+        window.setAttributes(params);
     }
 
     @Override

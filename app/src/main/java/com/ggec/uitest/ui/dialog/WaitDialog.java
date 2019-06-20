@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -40,12 +41,14 @@ public class WaitDialog extends DialogFragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         Window window = getDialog().getWindow();
-        if (window != null) {
-            WindowManager.LayoutParams params = window.getAttributes();
-            float scale = getActivity().getApplication().getResources().getDisplayMetrics().density;
-            params.width = (int) (150 * scale + 0.5f);  // dp2px
-            getDialog().getWindow().setAttributes(params);
-        }
+        if (window == null) return;
+        FragmentActivity activity = getActivity();
+        if (activity == null) return;
+        WindowManager.LayoutParams params = window.getAttributes();
+        float scale = activity.getApplication().getResources().getDisplayMetrics().density;
+        params.width = (int) (150 * scale + 0.5f);  // dp2px
+        params.dimAmount = 0.5f;
+        window.setAttributes(params);
     }
 
     @Override

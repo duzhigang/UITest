@@ -71,6 +71,7 @@ public class FileDownLoadActivity extends FragmentActivity {
     private void start_single(String url) {
         BaseDownloadTask singleTask = FileDownloader.getImpl().create(url)
 //                .setPath(filePath, false)
+                // 如果pathAsDirectory是true,path就是存储下载文件的文件目录(而不是路径)，此时默认情况下文件名filename将会默认从response#header中的contentDisposition中获得
                 .setPath(fileDirectory, true)
                 .setCallbackProgressTimes(300)  // 下载过程中FileDownloadListener#progress最大回调次数
                 .setMinIntervalUpdateSpeed(400) // 设置下载中刷新下载速度的最小间隔

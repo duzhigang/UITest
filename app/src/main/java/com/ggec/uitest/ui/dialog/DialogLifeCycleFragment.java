@@ -2,6 +2,7 @@ package com.ggec.uitest.ui.dialog;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -39,25 +40,30 @@ public class DialogLifeCycleFragment extends Fragment{
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         Log.v(TAG,"onCreateView()");
         View view = inflater.inflate(R.layout.fragment_dialog_life_cycle, container,false);
-        Button btnStartDialog = view.findViewById(R.id.btn_dialog_life_cycle_start_dialog);
-        btnStartDialog.setOnClickListener(v -> {
-            Log.i(TAG,"启动Dialog");
+        Button btnStarAlerttDialog = view.findViewById(R.id.btn_dialog_life_cycle_start_alert_dialog);
+        btnStarAlerttDialog.setOnClickListener(v -> {
+            Log.i(TAG,"启动AlertDialog");
             String content = "测试普通的AlertDialog";
             MyAlertDialog dialog = MyAlertDialog.newInstance(null,content,null,null);
-            dialog.setCallback(new Callback() {
-                @Override
-                public void callback(int position) {
-                    switch (position) {
-                        case 0:
-                            Log.i(TAG,"点击取消");
-                            break;
-                        case 1:
-                            Log.i(TAG,"点击确定");
-                            break;
-                    }
+            dialog.setCallback(position -> {
+                switch (position) {
+                    case 0:
+                        Log.i(TAG,"点击取消");
+                        break;
+                    case 1:
+                        Log.i(TAG,"点击确定");
+                        break;
                 }
             });
             dialog.show(getFragmentManager(), "normal_dialog");
+        });
+
+        Button btnStartWaitDialog = view.findViewById(R.id.btn_dialog_life_cycle_start_wait_dialog);
+        btnStartWaitDialog.setOnClickListener(v -> {
+            Log.i(TAG,"启动WaitDialog");
+            WaitDialog dialog = WaitDialog.newInstance("正在启动，请稍后...");
+            dialog.show(getFragmentManager(), "test_wait_dialog");
+            new Handler().postDelayed(dialog::dismissDialog, 5000);
         });
         return view;
     }

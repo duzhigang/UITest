@@ -18,8 +18,8 @@
         <!--是否显示title-->
         <item name="android:windowNoTitle">true</item>
         <!--设置背景图,可以设置成透明-->
-        <item name="android:windowBackground">@drawable/bg_alert_dialog</item>
-        <!--背景是否模糊显示-->
+        <item name="android:windowBackground">@drawable/round_layout</item>
+        <!--背景是否模糊显示，默认是-->
         <item name="android:backgroundDimEnabled">true</item>
     </style>
 
