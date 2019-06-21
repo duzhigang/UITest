@@ -131,6 +131,10 @@
         <activity android:name=".ui.eventbus.EBSecondActivity"
             android:theme="@android:style/Theme.Holo.NoActionBar"/>
 
+        <!--测试在APP中启动其他的应用程序-->
+        <activity android:name=".ui.startotherapp.StartOtherAppActivity"
+            android:theme="@android:style/Theme.Holo.NoActionBar"/>
+
     </application>
 
 </manifest>

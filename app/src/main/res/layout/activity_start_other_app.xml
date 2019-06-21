@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal">
+
+    <Button
+        android:id="@+id/btn_start_other_app_wifi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="启动Wifi设置"/>
+
+    <Button
+        android:id="@+id/btn_start_other_app_browser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="启动浏览器"/>
+
+    <Button
+        android:id="@+id/btn_start_other_app_qq"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="启动已存在的QQ音乐APP"/>
+
+    <Button
+        android:id="@+id/btn_start_other_app_wy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="启动不存在的网页云音乐APP"/>
+
+</LinearLayout>

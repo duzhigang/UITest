@@ -10,9 +10,7 @@ import android.util.Log;
 import android.widget.Button;
 
 import com.ggec.uitest.R;
-import com.ggec.uitest.ui.dialog.FragmentDialogActivity;
-import com.ggec.uitest.ui.downloadfile.FileDownLoadActivity;
-import com.ggec.uitest.ui.eventbus.EventBusActivity;
+import com.ggec.uitest.ui.startotherapp.StartOtherAppActivity;
 import com.ggec.uitest.wrap.MyContextWrapper;
 
 import java.util.Locale;
@@ -28,7 +26,7 @@ public class MainActivity extends FragmentActivity {
         setContentView(R.layout.activity_main);
         Button btnStart = findViewById(R.id.btn_main_start);
         btnStart.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, FragmentDialogActivity.class);
+            Intent intent = new Intent(MainActivity.this, StartOtherAppActivity.class);
             startActivity(intent);
         });
 
