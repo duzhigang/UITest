@@ -4,19 +4,25 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ConfigurationInfo;
+import android.graphics.Point;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.Display;
 import android.widget.Button;
 
 import com.ggec.uitest.R;
+import com.ggec.uitest.ui.dialog.FragmentDialogActivity;
+import com.ggec.uitest.ui.measureScreen.MeasureActivity;
 import com.ggec.uitest.ui.startotherapp.StartOtherAppActivity;
 import com.ggec.uitest.wrap.MyContextWrapper;
 
 import java.util.Locale;
 
 public class MainActivity extends FragmentActivity {
-    private String TAG = "MainActivity";
+    private static final String TAG = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +32,7 @@ public class MainActivity extends FragmentActivity {
         setContentView(R.layout.activity_main);
         Button btnStart = findViewById(R.id.btn_main_start);
         btnStart.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, StartOtherAppActivity.class);
+            Intent intent = new Intent(MainActivity.this, MeasureActivity.class);
             startActivity(intent);
         });
 
@@ -36,7 +42,6 @@ public class MainActivity extends FragmentActivity {
         String strResult = Integer.toString(configurationInfo.reqGlEsVersion, 16);
         // version: 30002  3.2版
         Log.i(TAG,"手机上OpenGL ES版本：" + strResult);
-
     }
 
 /*   // Android退出所有Activity最优雅的方式：https://www.cnblogs.com/caobotao/p/5127645.html

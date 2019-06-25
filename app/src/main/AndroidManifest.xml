@@ -135,6 +135,10 @@
         <activity android:name=".ui.startotherapp.StartOtherAppActivity"
             android:theme="@android:style/Theme.Holo.NoActionBar"/>
 
+        <!--获取屏幕宽度和高度的几种方法测试-->
+        <activity android:name=".ui.measureScreen.MeasureActivity"
+            android:theme="@android:style/Theme.Holo.NoActionBar"/>
+
     </application>
 
 </manifest>
