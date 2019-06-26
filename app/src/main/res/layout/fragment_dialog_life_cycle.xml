@@ -6,10 +6,17 @@
     android:background="#a2d6db">
 
     <Button
-        android:id="@+id/btn_dialog_life_cycle_start_alert_dialog"
+        android:id="@+id/btn_dialog_life_cycle_start_one_alert_dialog"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="启动AlertDialog"/>
+        android:text="启动一个Button的AlertDialog"/>
+
+    <Button
+        android:id="@+id/btn_dialog_life_cycle_start_two_alert_dialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="启动两个Button的AlertDialog"/>
 
     <Button
         android:id="@+id/btn_dialog_life_cycle_start_wait_dialog"

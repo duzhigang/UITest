@@ -35,14 +35,18 @@ public class MyAlertDialog extends DialogFragment {
     private String content = "";
     private String negativeName = "";
     private String positiveName = "";
+    private boolean leftBtnExit = true;
+    private boolean rightBtnExit = true;
 
-    public static MyAlertDialog newInstance(String title, String content, String negativeString, String positiveString) {
+    public static MyAlertDialog newInstance(String title, String content, String negativeString, boolean leftBtnExist, String positiveString, boolean rightBtnExist) {
         MyAlertDialog fragment = new MyAlertDialog();
         Bundle args = new Bundle();
         args.putString("title", title);
         args.putString("content", content);
         args.putString("negativeString", negativeString);
+        args.putBoolean("leftBtnExit", leftBtnExist);
         args.putString("positiveString", positiveString);
+        args.putBoolean("rightBtnExist", rightBtnExist);
         fragment.setArguments(args);
         return fragment;
     }
@@ -86,6 +90,8 @@ public class MyAlertDialog extends DialogFragment {
             this.content = getArguments().getString("content", defaultContent);
             this.negativeName = getArguments().getString("negativeString", defaultNegativeString);
             this.positiveName = getArguments().getString("positiveString", defaultPositiveString);
+            this.leftBtnExit = getArguments().getBoolean("leftBtnExit", true);
+            this.rightBtnExit = getArguments().getBoolean("rightBtnExit", true);
         }
     }
 
@@ -99,12 +105,25 @@ public class MyAlertDialog extends DialogFragment {
         TextView tvContent = view.findViewById(R.id.tv_dialog_my_alert_content);
         tvContent.setText(content);
         Button btnNegative = view.findViewById(R.id.btn_dialog_my_alert_nag);
+        if (leftBtnExit) {
+            btnNegative.setVisibility(View.VISIBLE);
+            btnNegative.setBackgroundResource(R.drawable.selector_btn_border_bg);
+        } else {
+            btnNegative.setVisibility(View.GONE);
+        }
         btnNegative.setText(negativeName);
         btnNegative.setOnClickListener(v -> {
             dismiss();
             callback.callback(0);
         });
+
         Button btnPositive = view.findViewById(R.id.btn_dialog_my_alert_pos);
+        if (rightBtnExit) {
+            btnPositive.setVisibility(View.VISIBLE);
+            btnPositive.setBackgroundResource(R.drawable.selector_btn_border_bg);
+        } else {
+            btnPositive.setVisibility(View.GONE);
+        }
         btnPositive.setText(positiveName);
         btnPositive.setOnClickListener(v -> {
             dismiss();

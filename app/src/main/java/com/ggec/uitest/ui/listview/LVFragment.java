@@ -51,7 +51,7 @@ public class LVFragment extends Fragment {
     private void showDeleteDialog(final int pos) {
         FragmentManager fm = getFragmentManager();
         String content = "删除".concat(listDatas.get(pos)).concat("?");
-        MyAlertDialog deleteDialog = MyAlertDialog.newInstance(null, content, null, null);
+        MyAlertDialog deleteDialog = MyAlertDialog.newInstance(null,content,null, true, null, true);
         deleteDialog.setCallback(position -> {
             switch (position) {
                 case 1:

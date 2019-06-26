@@ -40,11 +40,12 @@ public class DialogLifeCycleFragment extends Fragment{
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         Log.v(TAG,"onCreateView()");
         View view = inflater.inflate(R.layout.fragment_dialog_life_cycle, container,false);
-        Button btnStarAlerttDialog = view.findViewById(R.id.btn_dialog_life_cycle_start_alert_dialog);
-        btnStarAlerttDialog.setOnClickListener(v -> {
-            Log.i(TAG,"启动AlertDialog");
-            String content = "测试普通的AlertDialog";
-            MyAlertDialog dialog = MyAlertDialog.newInstance(null,content,null,null);
+
+        Button btnStartOneAlertDialog = view.findViewById(R.id.btn_dialog_life_cycle_start_one_alert_dialog);
+        btnStartOneAlertDialog.setOnClickListener(v -> {
+            Log.i(TAG,"启动只有确定按钮的AlertDialog");
+            String content = "测试只有确定按钮的AlertDialog";
+            MyAlertDialog dialog = MyAlertDialog.newInstance(null,content,null, false, null, true);
             dialog.setCallback(position -> {
                 switch (position) {
                     case 0:
@@ -55,7 +56,25 @@ public class DialogLifeCycleFragment extends Fragment{
                         break;
                 }
             });
-            dialog.show(getFragmentManager(), "normal_dialog");
+            dialog.show(getFragmentManager(), "one_alert_dialog");
+        });
+
+        Button btnStarTwoAlertDialog = view.findViewById(R.id.btn_dialog_life_cycle_start_two_alert_dialog);
+        btnStarTwoAlertDialog.setOnClickListener(v -> {
+            Log.i(TAG,"启动包含确定和取消的AlertDialog");
+            String content = "测试包含确定和取消的AlertDialog";
+            MyAlertDialog dialog = MyAlertDialog.newInstance(null,content,null, true, null, true);
+            dialog.setCallback(position -> {
+                switch (position) {
+                    case 0:
+                        Log.i(TAG,"点击取消");
+                        break;
+                    case 1:
+                        Log.i(TAG,"点击确定");
+                        break;
+                }
+            });
+            dialog.show(getFragmentManager(), "two_alert_dialog");
         });
 
         Button btnStartWaitDialog = view.findViewById(R.id.btn_dialog_life_cycle_start_wait_dialog);
