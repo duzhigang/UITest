@@ -139,6 +139,14 @@
         <activity android:name=".ui.measureScreen.MeasureActivity"
             android:theme="@android:style/Theme.Holo.NoActionBar"/>
 
+        <!--数据库的基本操作测试-->
+        <activity android:name=".ui.database.SQLiteActivity"
+            android:theme="@android:style/Theme.Holo.NoActionBar"/>
+
+        <!--LitePal数据库的基本操作测试-->
+        <activity android:name=".ui.database.LitePalActivity"
+            android:theme="@android:style/Theme.Holo.NoActionBar"/>
+
     </application>
 
 </manifest>
