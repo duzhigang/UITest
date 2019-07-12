@@ -10,8 +10,10 @@ import android.util.Log;
 import android.widget.Button;
 
 import com.ggec.uitest.R;
+import com.ggec.uitest.ui.activitymanager.AActivity;
 import com.ggec.uitest.ui.database.LitePalActivity;
 import com.ggec.uitest.ui.database.SQLiteActivity;
+import com.ggec.uitest.ui.md5.Md5Activity;
 import com.ggec.uitest.wrap.MyContextWrapper;
 
 import java.util.Locale;
@@ -27,7 +29,7 @@ public class MainActivity extends FragmentActivity {
         setContentView(R.layout.activity_main);
         Button btnStart = findViewById(R.id.btn_main_start);
         btnStart.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, SQLiteActivity.class);
+            Intent intent = new Intent(MainActivity.this, Md5Activity.class);
             startActivity(intent);
         });
 

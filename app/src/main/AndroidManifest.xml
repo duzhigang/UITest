@@ -147,6 +147,10 @@
         <activity android:name=".ui.database.LitePalActivity"
             android:theme="@android:style/Theme.Holo.NoActionBar"/>
 
+        <!--MD5加密的基本操作测试-->
+        <activity android:name=".ui.md5.Md5Activity"
+            android:theme="@android:style/Theme.Holo.NoActionBar"/>
+
     </application>
 
 </manifest>
