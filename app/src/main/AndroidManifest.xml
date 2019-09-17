@@ -151,6 +151,18 @@
         <activity android:name=".ui.md5.Md5Activity"
             android:theme="@android:style/Theme.Holo.NoActionBar"/>
 
+        <!--Android原始资源raw、assets测试-->
+        <activity android:name=".ui.resource.RawAssetsActivity"
+            android:theme="@android:style/Theme.Holo.NoActionBar"/>
+
+        <!--Android属性资源(Attribute)-测试-->
+        <activity android:name=".ui.resource.AttrResActivity"
+            android:theme="@android:style/Theme.Holo.NoActionBar"/>
+
+        <!--Android AnimationDrawable(如补间动画)测试-->
+        <activity android:name=".ui.resource.AnimationDrawableActivity"
+            android:theme="@android:style/Theme.Holo.NoActionBar"/>
+
     </application>
 
 </manifest>
