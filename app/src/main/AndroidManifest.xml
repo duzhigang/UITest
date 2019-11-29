@@ -163,6 +163,18 @@
         <activity android:name=".ui.resource.AnimationDrawableActivity"
             android:theme="@android:style/Theme.Holo.NoActionBar"/>
 
+        <!--Activity绑定Service测试-->
+        <activity android:name=".ui.service.BindingActivity"
+            android:theme="@android:style/Theme.Holo.NoActionBar"/>
+
+        <service android:name=".ui.service.LocalService"/>
+
+        <!--Activity绑定Messenger测试-->
+        <activity android:name=".ui.service.MessengerActivity"
+            android:theme="@android:style/Theme.Holo.NoActionBar"/>
+
+        <service android:name=".ui.service.MessengerService"/>
+
     </application>
 
 </manifest>

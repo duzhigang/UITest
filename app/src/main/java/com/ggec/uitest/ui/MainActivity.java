@@ -13,6 +13,8 @@ import com.ggec.uitest.R;
 import com.ggec.uitest.ui.resource.AnimationDrawableActivity;
 import com.ggec.uitest.ui.resource.AttrResActivity;
 import com.ggec.uitest.ui.resource.RawAssetsActivity;
+import com.ggec.uitest.ui.service.BindingActivity;
+import com.ggec.uitest.ui.service.MessengerActivity;
 import com.ggec.uitest.wrap.MyContextWrapper;
 
 import java.util.Locale;
@@ -28,7 +30,7 @@ public class MainActivity extends FragmentActivity {
         setContentView(R.layout.activity_main);
         Button btnStart = findViewById(R.id.btn_main_start);
         btnStart.setOnClickListener(v -> {
-            Intent intent = new Intent(MainActivity.this, AnimationDrawableActivity.class);
+            Intent intent = new Intent(MainActivity.this, MessengerActivity.class);
             startActivity(intent);
         });
 
