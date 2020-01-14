@@ -175,6 +175,18 @@
 
         <service android:name=".ui.service.MessengerService"/>
 
+        <!--Nsd服务发现测试-->
+        <activity android:name=".ui.nsd.NsdActivity"
+            android:theme="@android:style/Theme.Holo.NoActionBar"/>
+
+        <!--Nsd Server测试-->
+        <activity android:name=".ui.nsd.NsdServerActivity"
+            android:theme="@android:style/Theme.Holo.NoActionBar"/>
+
+        <!--Nsd Client测试-->
+        <activity android:name=".ui.nsd.NsdClientActivity"
+            android:theme="@android:style/Theme.Holo.NoActionBar"/>
+
     </application>
 
 </manifest>
