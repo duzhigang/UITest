@@ -35,5 +35,9 @@ dependencies {
     implementation 'org.greenrobot:eventbus:3.1.1'
     // Android轻量级数据库的开源库
     implementation 'org.litepal.android:java:3.0.0'
+    // netty库，以下两种写法都可以
+//    implementation group: 'io.netty', name: 'netty-all', version: '4.1.45.Final'
+    implementation 'io.netty:netty-all:4.1.45.Final'
+
     testImplementation 'junit:junit:4.12'
 }
