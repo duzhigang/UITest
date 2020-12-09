@@ -12,6 +12,9 @@ import com.ggec.uitest.R;
  * NSD服务介绍 https://www.jianshu.com/p/2b8a0156bdc0
  * NSD服务Google官方文档：https://developer.android.com/training/connect-devices-wirelessly/nsd.html#java
  * NSD（NsdManager）是Android SDK中自带的类库，可以集成直接使用,采用组播方式。使用 NSD服务需要minSdkVersion >16
+ * 用NSD/DNSSD/RxDNSSD/Rx2DNNSD库用三星手机测试:
+ * 用系统返回键退出时，可以快速的发现（测试20次全部可以发现）；
+ * 如果手动杀死进程，则大概率出现无法发现设备，并且后面按照正常的返回键退出后再次进入仍然无法发现设备。
  * */
 public class NsdActivity extends FragmentActivity {
     private static final String TAG = "NsdActivity";

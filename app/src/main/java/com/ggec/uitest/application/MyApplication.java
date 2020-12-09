@@ -1,6 +1,7 @@
 package com.ggec.uitest.application;
 
 import android.app.Application;
+import android.support.multidex.MultiDex;
 
 import com.liulishuo.filedownloader.FileDownloader;
 import com.liulishuo.filedownloader.connection.FileDownloadUrlConnection;
@@ -27,6 +28,8 @@ public class MyApplication extends Application {
                 .commit();
         // 初始化LitePal库
         LitePal.initialize(this);
+        // 初始化MultiDex
+        MultiDex.install(this);
     }
 
     synchronized public static MyApplication getMyApplication() {

@@ -10,6 +10,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -21,6 +22,14 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+    packagingOptions {
+        exclude 'META-INF/*'
+        exclude 'META-INF/NOTICE' // will not include NOTICE file
+        exclude 'META-INF/LICENSE' // will not include LICENSE file
+        exclude 'META-INF/INDEX.LIST' // will not include INDEX.LIST file
+        exclude 'META-INF/proguard/androidx-annotations.pro'
+    }
+
 }
 
 dependencies {
@@ -29,6 +38,7 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     implementation 'com.android.support:appcompat-v7:28.+'
+    implementation 'com.android.support:multidex:1.0.3'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     implementation 'com.squareup.okhttp3:okhttp:3.9.1'
     implementation 'com.liulishuo.filedownloader:library:1.7.5'
@@ -38,4 +48,11 @@ dependencies {
     // netty库，以下两种写法都可以
 //    implementation group: 'io.netty', name: 'netty-all', version: '4.1.45.Final'
     implementation 'io.netty:netty-all:4.1.45.Final'
+    // 类似于NSD的jmdns开源库
+    implementation "org.jmdns:jmdns:3.5.6"
+    implementation "org.slf4j:slf4j-log4j12:1.7.25"
+    // 类似于NSD的dnssd开源库
+    implementation 'com.github.andriydruk:dnssd:0.9.13'
+    implementation 'com.github.andriydruk:rxdnssd:0.9.13'
+    implementation 'com.github.andriydruk:rx2dnssd:0.9.13'
 }

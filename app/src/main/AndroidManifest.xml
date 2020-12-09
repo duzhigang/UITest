@@ -191,6 +191,14 @@
         <activity android:name=".ui.nsd.NsdClientActivity"
             android:theme="@android:style/Theme.Holo.NoActionBar"/>
 
+        <!--Dnssd Client测试-->
+        <activity android:name=".ui.nsd.DnssdActivity"
+            android:theme="@android:style/Theme.Holo.NoActionBar"/>
+
+        <!--JmDNS Client测试-->
+        <activity android:name=".ui.nsd.JmDNSActivity"
+            android:theme="@android:style/Theme.Holo.NoActionBar"/>
+
         <!--Netty 多个Client连接不同的Server测试-->
         <activity android:name=".ui.netty.multiclient.MultiClientActivity"
             android:theme="@android:style/Theme.Holo.NoActionBar"/>
