@@ -179,6 +179,10 @@
         <activity android:name=".ui.nsd.NsdActivity"
             android:theme="@android:style/Theme.Holo.NoActionBar"/>
 
+        <!--Nsd 聊天服务发现测试-->
+        <activity android:name=".ui.nsd.NsdChatActivity"
+            android:theme="@android:style/Theme.Holo.NoActionBar"/>
+
         <!--Nsd Server测试-->
         <activity android:name=".ui.nsd.NsdServerActivity"
             android:theme="@android:style/Theme.Holo.NoActionBar"/>

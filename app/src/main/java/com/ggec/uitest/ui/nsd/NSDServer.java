@@ -13,7 +13,8 @@ public class NSDServer {
     private IRegisterState registerState; //NSD服务接口对象
     private String mServerName;
 //    private static final String SERVER_TYPE = "_http._tcp.";  // 服务器type，要客户端扫描服务器的一致
-    private static final String SERVER_TYPE = "_spotify-connect._tcp.";
+//    private static final String SERVER_TYPE = "_spotify-connect._tcp.";
+    private static final String SERVER_TYPE = "_ggec-iar._tcp.";
 //    private static final String SERVER_TYPE = "_airplay._tcp.";
 
     public NSDServer() {
